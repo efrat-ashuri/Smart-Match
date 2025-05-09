@@ -1,0 +1,22 @@
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\bin\Debug\net8.0\Common.deps.json
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\bin\Debug\net8.0\Common.dll
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\bin\Debug\net8.0\Common.pdb
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.AssemblyInfoInputs.cache
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.AssemblyInfo.cs
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.dll
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\refint\Common.dll
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.pdb
+C:\Users\user1\Desktop\תכנות סמסטר ב\projectC#\Smart-Match\Common\obj\Debug\net8.0\ref\Common.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\bin\Debug\net8.0\Common.deps.json
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\bin\Debug\net8.0\Common.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\bin\Debug\net8.0\Common.pdb
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.AssemblyInfoInputs.cache
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.AssemblyInfo.cs
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\refint\Common.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\Common.pdb
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Common\obj\Debug\net8.0\ref\Common.dll
