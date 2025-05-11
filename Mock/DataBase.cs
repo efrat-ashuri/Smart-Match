@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repository.Entities;
 using System;
-
 namespace Mock
-{
-    public class SmartMatchDbContext : DbContext
+{ 
+    public class SmartMatchDbContext :DbContext,IContext
+
     {
         // DbSets
         public DbSet<Manager> Managers { get; set; }
@@ -89,5 +89,10 @@ namespace Mock
                 .HasForeignKey(cs => cs.IdSkills)
                 .OnDelete(DeleteBehavior.Restrict);
         }
+        public void Save()
+        {
+            this.SaveChanges();
+        }
+
     }
 }

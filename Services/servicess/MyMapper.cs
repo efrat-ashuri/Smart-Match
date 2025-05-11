@@ -15,6 +15,9 @@ namespace Service.servicess
 
     public class MyMapper:Profile
     {
+        //מחלקה שמטפלת בהמרות
+        ///ולא שומרים ב database את הכתבת url אלא את שם התמונה מקובץ התמונה
+      
         public MyMapper()
         {
             CreateMap<Manager,ManagerDto>().ReverseMap();
