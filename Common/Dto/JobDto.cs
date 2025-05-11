@@ -10,7 +10,6 @@ using Repository.Entities;
 
 
 namespace Common.Dto
-
 {
     public class JobDto
     {

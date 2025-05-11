@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Repository\\Repository.csproj": {}
+    "C:\\Users\\user1\\Desktop\\Smart-Match\\Repository\\Repository.csproj": {}
   },
   "projects": {
-    "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Repository\\Repository.csproj": {
+    "C:\\Users\\user1\\Desktop\\Smart-Match\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\Smart-Match\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\user1\\Desktop\\Smart-Match\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\Smart-Match\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

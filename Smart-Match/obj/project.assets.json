@@ -434,11 +434,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Smart-Match\\Smart-Match.csproj",
+      "projectUniqueName": "C:\\Users\\user1\\Desktop\\Smart-Match\\Smart-Match\\Smart-Match.csproj",
       "projectName": "Smart-Match",
-      "projectPath": "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Smart-Match\\Smart-Match.csproj",
+      "projectPath": "C:\\Users\\user1\\Desktop\\Smart-Match\\Smart-Match\\Smart-Match.csproj",
       "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-      "outputPath": "D:\\לימודים שנה ב\\C#++\\פרויקט מעודכן\\11.05\\Smart-Match\\Smart-Match\\obj\\",
+      "outputPath": "C:\\Users\\user1\\Desktop\\Smart-Match\\Smart-Match\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

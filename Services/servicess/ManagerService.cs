@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Common.Dto;
 using Repository.Entities;
-using Services.Interfaces;
+using Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace Service.servicess
 {
     public class ManagerService : IService<ManagerDto>
     {
@@ -45,7 +45,5 @@ namespace Services
         {
             repository.UpdateItem(id, mapper.Map<ManagerDto, Manager>(item));
         }
-
-
     }
 }
