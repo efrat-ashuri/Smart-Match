@@ -25,7 +25,7 @@ namespace Repository.Entities
         [ForeignKey("Manager")]
         public int ManagerId { get; set; }
         public Manager Manager { get; set; }
-
+        
         public string Title { get; set; }
         public string Description { get; set; }
         public string Area {  get; set; }

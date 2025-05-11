@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Services.Interfaces
 {
-    internal interface IService
+    public interface IService<T>
     {
-
-        //good morning
+        T GetById(int id);
+        List<T> GetAll();
+        T AddItem(T item);
+        void DeleteItem(int id);
+       void UpdateItem(int id, T item);
     }
 }

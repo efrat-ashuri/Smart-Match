@@ -20,3 +20,4 @@ C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Re
 C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Repository\obj\Debug\net8.0\refint\Repository.dll
 C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Repository\obj\Debug\net8.0\Repository.pdb
 C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Repository\obj\Debug\net8.0\ref\Repository.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Repository\obj\Debug\net8.0\Repository.csproj.AssemblyReference.cache

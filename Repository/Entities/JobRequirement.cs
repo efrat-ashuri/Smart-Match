@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Repository.Entities
 {
+    public enum eAdvanOrMust
+    {
+        Advantege,Must
+    }
     public class JobRequirement
     {
         [Key]
@@ -21,6 +25,6 @@ namespace Repository.Entities
         public int IdRequirement { get; set; }
         public Requirements Requirement { get; set; }
 
-        public string AdvantageOrMust { get; set; } // "advantage" או "must"
+        public eAdvanOrMust AdvantageOrMust { get; set; } // "advantage" או "must"
     }
 }

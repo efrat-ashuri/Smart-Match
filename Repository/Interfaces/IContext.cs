@@ -1,29 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Repository.Entities;
-using System;
+﻿using Repository.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repository.Interfaces
+using Microsoft.EntityFrameworkCore;
+public interface IContext
 {
-    //  הממשק שמתאר את הנתונים מייצג את הdatabase
-    public interface IContext
-    {
-        public DbSet<Candidate> Candidates { get; set; }
-        public Dbset<CandidateRequirement> CandidatesReq { get; set; }
-        public Dbset<CandidateSkills> CandidateSkills{ get; set; }
-        public Dbset<Job> Jobs { get; set; }
-        public Dbset<JobRequirement> JobReq { get; set; }
-        public Dbset<JobSkill> JobSkills { get; set; }
-        public Dbset<Manager> Managers { get; set; }
-        public Dbset<Requirements> Requirements { get; set; }
-        public Dbset<Skills> Skills { get; set; }
-        public void Save();       
+    DbSet<Candidate> Candidates { get; set; }
+    DbSet<CandidateRequirement> CandidatesReq { get; set; }
+    DbSet<CandidateSkills> CandidateSkills { get; set; }
+    DbSet<Job> Jobs { get; set; }
+    DbSet<JobRequirement> JobReq { get; set; }
+    DbSet<JobSkill> JobSkills { get; set; }
+    DbSet<Manager> Managers { get; set; }
+    DbSet<Requirements> Requirements { get; set; }
+    DbSet<Skills> Skills { get; set; }
 
-
-
-
-    }
+    void Save();
 }

@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.Interfaces
+public interface IRepository<T>
 {
-    internal interface IRepository
-    {
-    }
+    T GetById(int id);
+    List<T> GetAll();
+    T AddItem(T item);
+    void DeleteItem(int id);
+    void UpdateItem(int id, T item);
 }
+
