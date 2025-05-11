@@ -8,5 +8,7 @@ namespace Services.Interfaces
 {
     internal interface IService
     {
+
+        //good morning
     }
 }
