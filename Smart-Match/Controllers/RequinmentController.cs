@@ -17,9 +17,9 @@ namespace Smart_Match.Controllers
         }
         // GET: api/<RequinmentController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<RequirementsDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return service.GetAll().ToList();
         }
 
         // GET api/<RequinmentController>/5
@@ -38,14 +38,16 @@ namespace Smart_Match.Controllers
 
         // PUT api/<RequinmentController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] RequirementsDto requirements)
         {
+            service.UpdateItem(id, requirements);
         }
 
         // DELETE api/<RequinmentController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            service.DeleteItem(id);
         }
     }
 }

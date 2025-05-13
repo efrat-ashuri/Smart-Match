@@ -12,7 +12,6 @@ namespace Smart_Match.Controllers
     [ApiController]
     public class ManagerController : ControllerBase
     {
-
         private readonly IService<ManagerDto> service;
         public ManagerController(IService<ManagerDto> service)
         {
@@ -21,9 +20,9 @@ namespace Smart_Match.Controllers
 
         // GET: api/<ManagerController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<ManagerDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return service.GetAll().ToList();
         }
 
         // GET api/<ManagerController>/5
@@ -42,14 +41,16 @@ namespace Smart_Match.Controllers
 
         // PUT api/<ManagerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] ManagerDto manager)
         {
+            service.UpdateItem(id, manager);
         }
 
         // DELETE api/<ManagerController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+           service.DeleteItem(id);
         }
     }
 

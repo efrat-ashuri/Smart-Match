@@ -8,7 +8,7 @@ public class JobRequirementRepository : IRepository<JobRequirement>
 
     public JobRequirement AddItem(JobRequirement item)
     {
-        context.JobReq.Add(item);
+        context.JobRequirements.Add(item);
         context.Save();
         return item;
     }
@@ -16,13 +16,13 @@ public class JobRequirementRepository : IRepository<JobRequirement>
     public void DeleteItem(int id)
     {
         var jr = GetById(id);
-        context.JobReq.Remove(jr);
+        context.JobRequirements.Remove(jr);
         context.Save();
     }
 
-    public List<JobRequirement> GetAll() => context.JobReq.ToList();
+    public List<JobRequirement> GetAll() => context.JobRequirements.ToList();
 
-    public JobRequirement GetById(int id) => context.JobReq.FirstOrDefault(j => j.JobRequirementId == id);
+    public JobRequirement GetById(int id) => context.JobRequirements.FirstOrDefault(j => j.JobRequirementId == id);
 
     public void UpdateItem(int id, JobRequirement item)
     {

@@ -8,7 +8,7 @@ public class CandidateRequirementRepository : IRepository<CandidateRequirement>
 
     public CandidateRequirement AddItem(CandidateRequirement item)
     {
-        context.CandidatesReq.Add(item);
+        context.CandidateRequirements.Add(item);
         context.Save();
         return item;
     }
@@ -16,13 +16,13 @@ public class CandidateRequirementRepository : IRepository<CandidateRequirement>
     public void DeleteItem(int id)
     {
         var cr = GetById(id);
-        context.CandidatesReq.Remove(cr);
+        context.CandidateRequirements.Remove(cr);
         context.Save();
     }
 
-    public List<CandidateRequirement> GetAll() => context.CandidatesReq.ToList();
+    public List<CandidateRequirement> GetAll() => context.CandidateRequirements.ToList();
 
-    public CandidateRequirement GetById(int id) => context.CandidatesReq.FirstOrDefault(c => c.CandidateReqId == id);
+    public CandidateRequirement GetById(int id) => context.CandidateRequirements.FirstOrDefault(c => c.CandidateReqId == id);
 
     public void UpdateItem(int id, CandidateRequirement item)
     {

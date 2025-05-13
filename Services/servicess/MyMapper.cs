@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common.Dto;
+using Common.Dto.Repository.Dto;
 using Repository.Entities;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,14 @@ namespace Service.servicess
         {
             CreateMap<Manager,ManagerDto>().ReverseMap();
             CreateMap<Job,JobDto>().ReverseMap();
+            CreateMap<Candidate, CandidateDto>().ReverseMap();
+            CreateMap<Skills, SkillsDto>().ReverseMap();
+            CreateMap<JobRequirement, JobRequirementDto>().ReverseMap();
+            CreateMap<JobSkill, JobSkillDto>().ReverseMap();
+            CreateMap<CandidateRequirement, CandidateRequirementDto>().ReverseMap();
+            CreateMap<CandidateSkills, CandidateSkillsDto>().ReverseMap();
+
+
         }
     }
 }

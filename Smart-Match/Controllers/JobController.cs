@@ -19,9 +19,9 @@ namespace Smart_Match.Controllers
         }
         // GET: api/<JobController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<JobDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return service.GetAll().ToList();
         }
 
         // GET api/<JobController>/5
@@ -40,14 +40,16 @@ namespace Smart_Match.Controllers
 
         // PUT api/<JobController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] JobDto job)
         {
+            service.UpdateItem(id, job);
         }
 
         // DELETE api/<JobController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            service.DeleteItem(id);
         }
     }
 }

@@ -18,9 +18,9 @@ namespace Smart_Match.Controllers
         }
         // GET: api/<SkillsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<SkillsDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return service.GetAll().ToList();
         }
 
         // GET api/<SkillsController>/5
@@ -39,14 +39,16 @@ namespace Smart_Match.Controllers
 
         // PUT api/<SkillsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] SkillsDto skills)
         {
+            service.UpdateItem(id, skills);
         }
 
         // DELETE api/<SkillsController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            service.DeleteItem(id);
         }
     }
 }
