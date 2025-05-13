@@ -29,6 +29,10 @@ namespace Mock.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CandidateId"));
 
+                    b.Property<string>("Area")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -120,6 +124,10 @@ namespace Mock.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobId"));
 
+                    b.Property<string>("Area")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -155,9 +163,8 @@ namespace Mock.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobRequirementId"));
 
-                    b.Property<string>("AdvantageOrMust")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AdvantageOrMust")
+                        .HasColumnType("int");
 
                     b.Property<int>("IdJob")
                         .HasColumnType("int");
@@ -174,7 +181,7 @@ namespace Mock.Migrations
                     b.ToTable("JobRequirements");
                 });
 
-            modelBuilder.Entity("Repository.Entities.JobSkills", b =>
+            modelBuilder.Entity("Repository.Entities.JobSkill", b =>
                 {
                     b.Property<int>("JobSkillsId")
                         .ValueGeneratedOnAdd()
@@ -331,7 +338,7 @@ namespace Mock.Migrations
                     b.Navigation("Requirement");
                 });
 
-            modelBuilder.Entity("Repository.Entities.JobSkills", b =>
+            modelBuilder.Entity("Repository.Entities.JobSkill", b =>
                 {
                     b.HasOne("Repository.Entities.Job", "Job")
                         .WithMany("ListSkills")

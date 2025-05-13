@@ -23,7 +23,10 @@ namespace Service.servicess
         }
         public JobDto AddItem(JobDto item)
         {
-           return mapper.Map<Job, JobDto>(repository.AddItem(mapper.Map<JobDto, Job>(item)));
+            Job job = mapper.Map<JobDto, Job>(item);
+            job.Manager = null;
+            job.ManagerId = item.ManagerId;
+            return mapper.Map<Job, JobDto>(repository.AddItem(mapper.Map<JobDto, Job>(item)));
         }
 
         public void DeleteItem(int id)
