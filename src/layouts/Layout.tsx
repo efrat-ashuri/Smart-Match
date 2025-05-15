@@ -10,6 +10,7 @@ export const Layout = () => {
         <header><NavBar /><AcountButton /></header>
         {/* // מחזיר את האלמנט שתואם לתת ניתוב הנוכחי */}
         <main><Outlet /></main>
+        {/* /// */}
         <footer>React Course</footer>
     </>
 }
