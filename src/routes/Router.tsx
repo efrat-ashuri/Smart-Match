@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router"
-import { HomePage } from "../pages/HomePage"
+import { HomePage } from "../pages/HomeManPage"
 import { ProductsPage } from "../pages/ProductsPage"
 import { AuthPage } from "../pages/AuthPage"
 import { LoginPage } from "../pages/LoginPage"

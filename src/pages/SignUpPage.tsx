@@ -1,6 +1,8 @@
 import { FormEvent } from "react"
 import { Link } from "react-router"
 
+
+
 export const SignUpPage = () => {
 
     const onSubmit = (event: FormEvent) => {
