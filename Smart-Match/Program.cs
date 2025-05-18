@@ -15,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+///לשנות כאן ....?????? -משאירה את זה לאפרת!!!!
 //הגדרת התלויות
 builder.Services.AddScoped<IService<ManagerDto>,ManagerService>();//עבור כל גולש
 builder.Services.AddScoped<IRepository<Manager>,ManagerRepository>();
