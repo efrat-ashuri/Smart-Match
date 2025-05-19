@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router"
-import { HomePage } from "../pages/HomeManPage"
-import { ProductsPage } from "../pages/ProductsPage"
+import { HomeManPage } from "../pages/HomeManPage"
+import { CandidateManPage } from "../pages/CandidateManPage"
 import { AuthPage } from "../pages/AuthPage"
 import { LoginPage } from "../pages/LoginPage"
 import { SignUpPage } from "../pages/SignUpPage"
@@ -18,11 +18,11 @@ const Router = () => {
             children: [
                 {
                     path: Paths.home,
-                    element: <HomePage />
+                    element: <HomeManPage />
                 },
                 {
-                    path: Paths.products,
-                    element: <AuthGuard roles={[RoleType.Admin]} ><ProductsPage  /></AuthGuard>
+                    path: Paths.candidate,
+                    element: <AuthGuard roles={[RoleType.Admin]} ><CandidateManPage  /></AuthGuard>
                 },
             ]
         },
