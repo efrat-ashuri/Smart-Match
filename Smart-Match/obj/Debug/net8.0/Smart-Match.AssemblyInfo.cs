@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Smart-Match")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4a48567b4153d8cad866a459f2574748bf0ecd5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90f5dfd9d7dccff090cae3020eaafc8b6b05c6d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Smart-Match")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Smart-Match")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

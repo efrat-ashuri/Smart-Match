@@ -1,5 +1,6 @@
 ﻿using Common.Dto;
 using Microsoft.Extensions.DependencyInjection;
+using Repository.Repositories;
 using Service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Service.servicess
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             //IServiceCollection---ממשק בנוי 
-            //services.AddRepository();???
+            services.AddRepository();
             services.AddScoped<IService<ManagerDto>, ManagerService>();
             services.AddScoped<IService<CandidateDto>, CandidateService>();
             services.AddScoped<IService<JobDto>, JobService>();
