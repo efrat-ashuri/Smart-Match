@@ -1,4 +1,5 @@
 ﻿using Common.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -34,6 +35,7 @@ namespace Smart_Match.Controllers
 
         // POST api/<ManagerController>
         [HttpPost]
+        [Authorize(Roles ="admin")]
         public ManagerDto Post([FromBody] ManagerDto manager)
         {
           return  service.AddItem(manager);

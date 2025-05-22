@@ -5,6 +5,8 @@ using Service.Interfaces;
 using Service.servicess;
 using Mock;
 using Repository.Repositories;
+using Microsoft.Data.SqlClient;
+
 //this project gooooood!!!!!!!
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,3 +54,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+

@@ -84,3 +84,4 @@ C:\Users\user1\Desktop\Smart-Match\Smart-Match\bin\Debug\net8.0\Microsoft.Entity
 C:\Users\user1\Desktop\Smart-Match\Smart-Match\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\user1\Desktop\Smart-Match\Smart-Match\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Users\user1\Desktop\Smart-Match\Smart-Match\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\user1\Desktop\Smart-Match\Smart-Match\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
