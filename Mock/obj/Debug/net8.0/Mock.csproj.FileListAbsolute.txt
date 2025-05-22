@@ -76,3 +76,8 @@ C:\Users\user1\Desktop\Smart-Match\Mock\obj\Debug\net8.0\refint\Mock.dll
 C:\Users\user1\Desktop\Smart-Match\Mock\obj\Debug\net8.0\Mock.pdb
 C:\Users\user1\Desktop\Smart-Match\Mock\obj\Debug\net8.0\Mock.genruntimeconfig.cache
 C:\Users\user1\Desktop\Smart-Match\Mock\obj\Debug\net8.0\ref\Mock.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Mock\bin\Debug\net8.0\Common.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Mock\bin\Debug\net8.0\Service.dll
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Mock\bin\Debug\net8.0\Common.pdb
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Mock\bin\Debug\net8.0\Service.pdb
+C:\Users\IMOE001\Pictures\לימודים\שנה ב\c#++\projectC#\Smart-Match\Mock\obj\Debug\net8.0\Mock.sourcelink.json

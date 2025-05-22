@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "6u+WiPJqHDI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Desktop\\Smart-Match\\Smart-Match\\Smart-Match.csproj",
+  "projectFilePath": "C:\\Users\\IMOE001\\Pictures\\לימודים\\שנה ב\\c#++\\projectC#\\Smart-Match\\Smart-Match\\Smart-Match.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
@@ -79,6 +79,7 @@
     "C:\\Users\\user1\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+
   ],
   "logs": []
 }
