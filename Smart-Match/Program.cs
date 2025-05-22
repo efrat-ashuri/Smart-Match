@@ -26,8 +26,8 @@ builder.Services.AddScoped<IRepository<Candidate>, CandidateRepository>();
 builder.Services.AddScoped<IService<JobDto>, JobService>();
 builder.Services.AddScoped<IRepository<Job>, JobRepository>();
 
-builder.Services.AddScoped<IService<RequirementsDto>, RequirementsService>();
-builder.Services.AddScoped<IRepository<Requirements>, RequirementsRepository>();
+//builder.Services.AddScoped<IService<RequirementsDto>, RequirementsService>();
+//builder.Services.AddScoped<IRepository<Requirements>, RequirementsRepository>();
 
 builder.Services.AddScoped<IService<SkillsDto>, SkillsService>();
 builder.Services.AddScoped<IRepository<Skills>, SkillsRepository>();
