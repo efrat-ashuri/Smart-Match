@@ -25,10 +25,6 @@ namespace Service.servicess
             CreateMap<Job,JobDto>().ReverseMap();
             CreateMap<Candidate, CandidateDto>().ReverseMap();
             CreateMap<Skills, SkillsDto>().ReverseMap();
-            CreateMap<JobRequirement, JobRequirementDto>().ReverseMap();
-            CreateMap<JobSkill, JobSkillDto>().ReverseMap();
-            CreateMap<CandidateRequirement, CandidateRequirementDto>().ReverseMap();
-            CreateMap<CandidateSkills, CandidateSkillsDto>().ReverseMap();
             CreateMap<Requirements, RequirementsDto>().ReverseMap();
         }
     }

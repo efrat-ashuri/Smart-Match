@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Common.Dto.Repository.Dto;
 
 namespace Common.Dto
 {
@@ -21,8 +20,8 @@ namespace Common.Dto
         public string Area { get; set; }
         public string EnglishLevel { get; set; }
 
-        //public List<CandidateRequirementDto> Requirements { get; set; }
-       // public List<CandidateSkillsDto> Skills { get; set; }
+        public List<RequirementsDto> Requirements { get; set; }
+        public List<SkillsDto> Skills { get; set; }
     }
 
 }

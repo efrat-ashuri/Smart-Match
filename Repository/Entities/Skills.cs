@@ -12,5 +12,7 @@ namespace Repository.Entities
         [Key]
         public int SkillsId { get; set; }
         public string Name { get; set; }
+        public int Mark { get; set; }
+
     }
 }

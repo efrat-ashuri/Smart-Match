@@ -12,5 +12,6 @@ namespace Common.Dto
     {
         public int SkillsId { get; set; }
         public string Name { get; set; }
+        public int Mark { get; set; }
     }
 }

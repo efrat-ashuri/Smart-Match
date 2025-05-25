@@ -29,6 +29,7 @@ public class RequirementsRepository : IRepository<Requirements>
         var req = GetById(id);
         if (req == null) return;
         req.Description = item.Description;
+        req.AdvantageOrMust=item.AdvantageOrMust;
         context.Save();
     }
 }

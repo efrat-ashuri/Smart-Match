@@ -31,8 +31,8 @@ namespace Repository.Entities
         public string Area {  get; set; }
         public eEnglishLevel EnglishLevel { get; set; }
 
-        public virtual List<JobRequirement> ListRequirement { get; set; }
-        public virtual List<JobSkill> ListSkills { get; set; }
+        public virtual List<Requirements> ListRequirement { get; set; }
+        public virtual List<Skills> ListSkills { get; set; }
         public int PassingScore { get; set; }
         public int NumCandidate { get; set; }
     }

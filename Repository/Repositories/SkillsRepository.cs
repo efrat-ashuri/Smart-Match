@@ -29,6 +29,7 @@ public class SkillsRepository : IRepository<Skills>
         var skill = GetById(id);
         if (skill == null) return;
         skill.Name = item.Name;
+        skill.Mark= item.Mark;
         context.Save();
     }
 }

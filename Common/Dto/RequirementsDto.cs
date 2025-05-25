@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace Common.Dto
     {
         public int RequirementId { get; set; }
         public string Description { get; set; }
+        public string AdvantageOrMust { get; set; }
+
     }
 }

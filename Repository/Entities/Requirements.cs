@@ -7,11 +7,19 @@ using System.Threading.Tasks;
 
 namespace Repository.Entities
 {
+    public enum eAdvanOrMust
+    {
+        Advantege, Must
+    }
+
     public class Requirements
     {
         [Key]
         public int RequirementId { get; set; }
         public string Description { get; set; }
+        public eAdvanOrMust AdvantageOrMust { get; set; }
+
+
     }
 
 }
