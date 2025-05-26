@@ -13,6 +13,9 @@ namespace Repository.Entities
         public int SkillsId { get; set; }
         public string Name { get; set; }
         public int Mark { get; set; }
+        public virtual List<Job> ListJob { get; set; } 
+        public virtual List<Candidate> ListCandidate { get; set; }
+
 
     }
 }

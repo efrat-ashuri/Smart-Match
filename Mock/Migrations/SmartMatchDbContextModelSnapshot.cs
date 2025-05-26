@@ -21,6 +21,66 @@ namespace Mock.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CandidateRequirements", b =>
+                {
+                    b.Property<int>("ListCandidateCandidateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ListRequirementRequirementId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ListCandidateCandidateId", "ListRequirementRequirementId");
+
+                    b.HasIndex("ListRequirementRequirementId");
+
+                    b.ToTable("CandidateRequirements");
+                });
+
+            modelBuilder.Entity("CandidateSkills", b =>
+                {
+                    b.Property<int>("ListCandidateCandidateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ListSkillsSkillsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ListCandidateCandidateId", "ListSkillsSkillsId");
+
+                    b.HasIndex("ListSkillsSkillsId");
+
+                    b.ToTable("CandidateSkills");
+                });
+
+            modelBuilder.Entity("JobRequirements", b =>
+                {
+                    b.Property<int>("ListJobJobId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ListRequirementRequirementId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ListJobJobId", "ListRequirementRequirementId");
+
+                    b.HasIndex("ListRequirementRequirementId");
+
+                    b.ToTable("JobRequirements");
+                });
+
+            modelBuilder.Entity("JobSkills", b =>
+                {
+                    b.Property<int>("ListJobJobId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ListSkillsSkillsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ListJobJobId", "ListSkillsSkillsId");
+
+                    b.HasIndex("ListSkillsSkillsId");
+
+                    b.ToTable("JobSkills");
+                });
+
             modelBuilder.Entity("Repository.Entities.Candidate", b =>
                 {
                     b.Property<int>("CandidateId")
@@ -58,62 +118,6 @@ namespace Mock.Migrations
                     b.HasKey("CandidateId");
 
                     b.ToTable("Candidates");
-                });
-
-            modelBuilder.Entity("Repository.Entities.CandidateRequirement", b =>
-                {
-                    b.Property<int>("CandidateReqId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CandidateReqId"));
-
-                    b.Property<int>("AdvantageOrMust")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCandidate")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdRequirement")
-                        .HasColumnType("int");
-
-                    b.HasKey("CandidateReqId");
-
-                    b.HasIndex("IdCandidate");
-
-                    b.HasIndex("IdRequirement");
-
-                    b.ToTable("CandidateRequirements");
-                });
-
-            modelBuilder.Entity("Repository.Entities.CandidateSkills", b =>
-                {
-                    b.Property<int>("CandidateSkillsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CandidateSkillsId"));
-
-                    b.Property<int>("IdCandidate")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdSkills")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SuccessRate")
-                        .HasColumnType("int");
-
-                    b.HasKey("CandidateSkillsId");
-
-                    b.HasIndex("IdCandidate");
-
-                    b.HasIndex("IdSkills");
-
-                    b.ToTable("CandidateSkills");
                 });
 
             modelBuilder.Entity("Repository.Entities.Job", b =>
@@ -155,62 +159,6 @@ namespace Mock.Migrations
                     b.ToTable("Jobs");
                 });
 
-            modelBuilder.Entity("Repository.Entities.JobRequirement", b =>
-                {
-                    b.Property<int>("JobRequirementId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobRequirementId"));
-
-                    b.Property<int>("AdvantageOrMust")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdJob")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdRequirement")
-                        .HasColumnType("int");
-
-                    b.HasKey("JobRequirementId");
-
-                    b.HasIndex("IdJob");
-
-                    b.HasIndex("IdRequirement");
-
-                    b.ToTable("JobRequirements");
-                });
-
-            modelBuilder.Entity("Repository.Entities.JobSkill", b =>
-                {
-                    b.Property<int>("JobSkillsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobSkillsId"));
-
-                    b.Property<int>("IdJob")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdSkills")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Mark")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("JobSkillsId");
-
-                    b.HasIndex("IdJob");
-
-                    b.HasIndex("IdSkills");
-
-                    b.ToTable("JobSkills");
-                });
-
             modelBuilder.Entity("Repository.Entities.Manager", b =>
                 {
                     b.Property<int>("ManagerId")
@@ -244,6 +192,9 @@ namespace Mock.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RequirementId"));
 
+                    b.Property<int>("AdvantageOrMust")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -261,6 +212,9 @@ namespace Mock.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SkillsId"));
 
+                    b.Property<int>("Mark")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -270,42 +224,64 @@ namespace Mock.Migrations
                     b.ToTable("Skills");
                 });
 
-            modelBuilder.Entity("Repository.Entities.CandidateRequirement", b =>
+            modelBuilder.Entity("CandidateRequirements", b =>
                 {
-                    b.HasOne("Repository.Entities.Candidate", "Candidate")
-                        .WithMany("ListCandidateRequirement")
-                        .HasForeignKey("IdCandidate")
+                    b.HasOne("Repository.Entities.Candidate", null)
+                        .WithMany()
+                        .HasForeignKey("ListCandidateCandidateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Repository.Entities.Requirements", "Requirement")
+                    b.HasOne("Repository.Entities.Requirements", null)
                         .WithMany()
-                        .HasForeignKey("IdRequirement")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("ListRequirementRequirementId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Candidate");
-
-                    b.Navigation("Requirement");
                 });
 
-            modelBuilder.Entity("Repository.Entities.CandidateSkills", b =>
+            modelBuilder.Entity("CandidateSkills", b =>
                 {
-                    b.HasOne("Repository.Entities.Candidate", "Candidate")
-                        .WithMany("ListSkills")
-                        .HasForeignKey("IdCandidate")
+                    b.HasOne("Repository.Entities.Candidate", null)
+                        .WithMany()
+                        .HasForeignKey("ListCandidateCandidateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Repository.Entities.Skills", "Skills")
+                    b.HasOne("Repository.Entities.Skills", null)
                         .WithMany()
-                        .HasForeignKey("IdSkills")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("ListSkillsSkillsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("JobRequirements", b =>
+                {
+                    b.HasOne("Repository.Entities.Job", null)
+                        .WithMany()
+                        .HasForeignKey("ListJobJobId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Candidate");
+                    b.HasOne("Repository.Entities.Requirements", null)
+                        .WithMany()
+                        .HasForeignKey("ListRequirementRequirementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.Navigation("Skills");
+            modelBuilder.Entity("JobSkills", b =>
+                {
+                    b.HasOne("Repository.Entities.Job", null)
+                        .WithMany()
+                        .HasForeignKey("ListJobJobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Repository.Entities.Skills", null)
+                        .WithMany()
+                        .HasForeignKey("ListSkillsSkillsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Repository.Entities.Job", b =>
@@ -317,58 +293,6 @@ namespace Mock.Migrations
                         .IsRequired();
 
                     b.Navigation("Manager");
-                });
-
-            modelBuilder.Entity("Repository.Entities.JobRequirement", b =>
-                {
-                    b.HasOne("Repository.Entities.Job", "Job")
-                        .WithMany("ListRequirement")
-                        .HasForeignKey("IdJob")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Repository.Entities.Requirements", "Requirement")
-                        .WithMany()
-                        .HasForeignKey("IdRequirement")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Job");
-
-                    b.Navigation("Requirement");
-                });
-
-            modelBuilder.Entity("Repository.Entities.JobSkill", b =>
-                {
-                    b.HasOne("Repository.Entities.Job", "Job")
-                        .WithMany("ListSkills")
-                        .HasForeignKey("IdJob")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Repository.Entities.Skills", "Skills")
-                        .WithMany()
-                        .HasForeignKey("IdSkills")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Job");
-
-                    b.Navigation("Skills");
-                });
-
-            modelBuilder.Entity("Repository.Entities.Candidate", b =>
-                {
-                    b.Navigation("ListCandidateRequirement");
-
-                    b.Navigation("ListSkills");
-                });
-
-            modelBuilder.Entity("Repository.Entities.Job", b =>
-                {
-                    b.Navigation("ListRequirement");
-
-                    b.Navigation("ListSkills");
                 });
 
             modelBuilder.Entity("Repository.Entities.Manager", b =>

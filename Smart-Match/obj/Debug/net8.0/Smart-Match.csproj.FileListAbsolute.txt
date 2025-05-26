@@ -154,7 +154,6 @@ C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\S
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.AssemblyInfoInputs.cache
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.AssemblyInfo.cs
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.csproj.CoreCompileInputs.cache
-C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.sourcelink.json
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\staticwebassets.build.json
@@ -171,3 +170,4 @@ C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\r
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.pdb
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.genruntimeconfig.cache
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\ref\Smart-Match.dll
+C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.MvcApplicationPartsAssemblyInfo.cs

@@ -2,6 +2,7 @@
 using Repository.Repositories;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository.Repositories
 {
@@ -24,10 +25,20 @@ namespace Repository.Repositories
             context.Save();
         }
 
-        public List<Job> GetAll() => context.Jobs.ToList();
 
-        public Job GetById(int id) => context.Jobs.FirstOrDefault(j => j.JobId == id);
 
+        public List<Job> GetAll() =>
+        context.Jobs
+            .Include(j => j.ListRequirement)
+            .Include(j => j.ListSkills)
+            .ToList();
+
+
+        public Job GetById(int id) =>
+         context.Jobs
+        .Include(j => j.ListRequirement)
+        .Include(j => j.ListSkills)
+        .FirstOrDefault(j => j.JobId == id);
         public void UpdateItem(int id, Job item)
         {
             var job = GetById(id);

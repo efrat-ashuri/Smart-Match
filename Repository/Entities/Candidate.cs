@@ -8,22 +8,23 @@ using System.Threading.Tasks;
 
 namespace Repository.Entities
 {
-   
-        public class Candidate
-        {
-            [Key]
-            public int CandidateId { get; set; }
 
-            public string Name { get; set; }
-            public string Email { get; set; }
-            public string Phone { get; set; }
-            public int ExperienceYears { get; set; }
-            public string Role { get; set; }
-            public string Area {  get; set; }
-            public eEnglishLevel EnglishLevel { get; set; }
+    public class Candidate
+    {
+        [Key]
+        public int CandidateId { get; set; }
 
-            public virtual List<Requirements> ListCandidateRequirement { get; set; }
-            public virtual List<Skills> ListSkills { get; set; }
-        }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public int ExperienceYears { get; set; }
+        public string Role { get; set; }
+        public string Area { get; set; }
+        public eEnglishLevel EnglishLevel { get; set; }
+
+        public virtual List<Requirements> ListRequirement { get; set; } 
+        public virtual List<Skills> ListSkills { get; set; }
+
     }
+}
 

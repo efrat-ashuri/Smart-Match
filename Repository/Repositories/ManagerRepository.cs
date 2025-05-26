@@ -1,4 +1,5 @@
-﻿using Repository.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Entities;
 using Repository.Repositories;
 
 public class ManagerRepository : IRepository<Manager>
@@ -20,9 +21,16 @@ public class ManagerRepository : IRepository<Manager>
         context.Save();
     }
 
-    public List<Manager> GetAll() => context.Managers.ToList();
+    public List<Manager> GetAll() =>
+        context.Managers
+            .Include(m => m.Jobs)   
+             
+            .ToList();
 
-    public Manager GetById(int id) => context.Managers.FirstOrDefault(m => m.ManagerId == id);
+    public Manager GetById(int id) =>
+        context.Managers
+            .Include(m => m.Jobs)  
+            .FirstOrDefault(m => m.ManagerId == id);
 
     public void UpdateItem(int id, Manager item)
     {
@@ -31,6 +39,7 @@ public class ManagerRepository : IRepository<Manager>
         manager.Name = item.Name;
         manager.Email = item.Email;
         manager.Password = item.Password;
+        // עדכון קשרים אם צריך
         context.Save();
     }
 }

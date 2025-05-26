@@ -1,5 +1,6 @@
 ﻿using Repository.Entities;
 using Repository.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 public class SkillsRepository : IRepository<Skills>
 {
@@ -20,16 +21,26 @@ public class SkillsRepository : IRepository<Skills>
         context.Save();
     }
 
-    public List<Skills> GetAll() => context.Skills.ToList();
+    public List<Skills> GetAll() =>
+        context.Skills
+            .Include(s => s.ListJob)
+            .Include(s => s.ListCandidate)
+            .ToList();
 
-    public Skills GetById(int id) => context.Skills.FirstOrDefault(s => s.SkillsId == id);
+    public Skills GetById(int id) =>
+        context.Skills
+            .Include(s => s.ListJob)
+            .Include(s => s.ListCandidate)
+            .FirstOrDefault(s => s.SkillsId == id);
 
     public void UpdateItem(int id, Skills item)
     {
         var skill = GetById(id);
         if (skill == null) return;
         skill.Name = item.Name;
-        skill.Mark= item.Mark;
+        skill.Mark = item.Mark;
+        skill.ListJob = item.ListJob;
+        skill.ListCandidate = item.ListCandidate;
         context.Save();
     }
 }

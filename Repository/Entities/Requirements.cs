@@ -18,7 +18,8 @@ namespace Repository.Entities
         public int RequirementId { get; set; }
         public string Description { get; set; }
         public eAdvanOrMust AdvantageOrMust { get; set; }
-
+        public virtual List<Job> ListJob { get; set; } 
+        public virtual List<Candidate> ListCandidate { get; set; } 
 
     }
 

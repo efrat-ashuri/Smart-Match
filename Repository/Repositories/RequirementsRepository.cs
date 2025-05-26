@@ -1,5 +1,6 @@
 ﻿using Repository.Entities;
 using Repository.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 public class RequirementsRepository : IRepository<Requirements>
 {
@@ -20,18 +21,26 @@ public class RequirementsRepository : IRepository<Requirements>
         context.Save();
     }
 
-    public List<Requirements> GetAll() => context.Requirements.ToList();
+    public List<Requirements> GetAll() =>
+        context.Requirements
+            .Include(r => r.ListJob)
+            .Include(r => r.ListCandidate)
+            .ToList();
 
-    public Requirements GetById(int id) => context.Requirements.FirstOrDefault(r => r.RequirementId == id);
+    public Requirements GetById(int id) =>
+        context.Requirements
+            .Include(r => r.ListJob)
+            .Include(r => r.ListCandidate)
+            .FirstOrDefault(r => r.RequirementId == id);
 
     public void UpdateItem(int id, Requirements item)
     {
         var req = GetById(id);
         if (req == null) return;
         req.Description = item.Description;
-        req.AdvantageOrMust=item.AdvantageOrMust;
+        req.AdvantageOrMust = item.AdvantageOrMust;
+        req.ListJob = item.ListJob;
+        req.ListCandidate = item.ListCandidate;
         context.Save();
     }
 }
-
-

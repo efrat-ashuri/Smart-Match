@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Common.Dto;
-using Common.Dto.Repository.Dto;
+
 using Repository.Entities;
 using System;
 using System.Collections.Generic;
