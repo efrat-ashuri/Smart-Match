@@ -23,7 +23,13 @@ namespace Service.servicess
         {
             CreateMap<Manager,ManagerDto>().ReverseMap();
             CreateMap<Job,JobDto>().ReverseMap();
-            CreateMap<Candidate, CandidateDto>().ReverseMap();
+            // CreateMap<Candidate, CandidateDto>().ReverseMap();
+
+            CreateMap<Candidate, CandidateDto>()
+    .ForMember(dest => dest.ListRequirement, opt => opt.MapFrom(src => src.ListRequirement))
+    .ForMember(dest => dest.ListSkills, opt => opt.MapFrom(src => src.ListSkills))
+    .ReverseMap();
+
             CreateMap<Skills, SkillsDto>().ReverseMap();
             CreateMap<Requirements, RequirementsDto>().ReverseMap();
         }

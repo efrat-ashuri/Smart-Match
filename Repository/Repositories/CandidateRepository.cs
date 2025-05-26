@@ -24,12 +24,14 @@ namespace Repository.Repositories
             context.Save();
         }
 
-        public List<Candidate> GetAll() =>
-            context.Candidates
-                .Include(c => c.ListRequirement)
-                .Include(c => c.ListSkills)
-                .ToList();
-
+        public List<Candidate> GetAll()
+        {
+            Console.WriteLine("fekgdwihjlksqf");
+            return context.Candidates
+                    .Include(c => c.ListRequirement)
+                    .Include(c => c.ListSkills)
+                    .ToList();
+        }
         public Candidate GetById(int id) =>
             context.Candidates
                 .Include(c => c.ListRequirement)

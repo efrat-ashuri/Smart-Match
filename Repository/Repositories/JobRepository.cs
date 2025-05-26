@@ -39,6 +39,8 @@ namespace Repository.Repositories
         .Include(j => j.ListRequirement)
         .Include(j => j.ListSkills)
         .FirstOrDefault(j => j.JobId == id);
+
+
         public void UpdateItem(int id, Job item)
         {
             var job = GetById(id);

@@ -20,8 +20,8 @@ namespace Common.Dto
         public string Area { get; set; }
         public string EnglishLevel { get; set; }
 
-        public List<RequirementsDto> Requirements { get; set; } = null;
-        public List<SkillsDto> Skills { get; set; } = null;
+        public List<RequirementsDto> ListRequirement { get; set; }
+        public List<SkillsDto> ListSkills { get; set; }
     }
 
 }

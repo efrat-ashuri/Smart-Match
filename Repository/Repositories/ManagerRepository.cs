@@ -22,15 +22,20 @@ public class ManagerRepository : IRepository<Manager>
     }
 
     public List<Manager> GetAll() =>
-        context.Managers
-            .Include(m => m.Jobs)   
-             
-            .ToList();
+      context.Managers
+        .Include(m => m.Jobs)
+            .ThenInclude(j => j.ListSkills)
+        .Include(m => m.Jobs)
+            .ThenInclude(j => j.ListRequirement)
+        .ToList();
+
 
     public Manager GetById(int id) =>
         context.Managers
-            .Include(m => m.Jobs)  
-            .FirstOrDefault(m => m.ManagerId == id);
+      .Include(m => m.Jobs)
+            .ThenInclude(j => j.ListSkills)
+        .Include(m => m.Jobs)
+            .ThenInclude(j => j.ListRequirement).FirstOrDefault(m => m.ManagerId == id);
 
     public void UpdateItem(int id, Manager item)
     {
@@ -39,6 +44,8 @@ public class ManagerRepository : IRepository<Manager>
         manager.Name = item.Name;
         manager.Email = item.Email;
         manager.Password = item.Password;
+        manager.Jobs = item.Jobs;
+
         // עדכון קשרים אם צריך
         context.Save();
     }

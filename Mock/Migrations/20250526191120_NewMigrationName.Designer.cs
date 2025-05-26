@@ -11,7 +11,7 @@ using Mock;
 namespace Mock.Migrations
 {
     [DbContext(typeof(SmartMatchDbContext))]
-    [Migration("20250526182944_NewMigrationName")]
+    [Migration("20250526191120_NewMigrationName")]
     partial class NewMigrationName
     {
         /// <inheritdoc />
