@@ -41,7 +41,7 @@ public class RequirementsRepository : IRepository<Requirements>
 
         if (requirnment == null)
             return;
-
+       
         // עדכון שדות פשוטים בלבד
         requirnment.Description = item.Description;
         requirnment.AdvantageOrMust = item.AdvantageOrMust;

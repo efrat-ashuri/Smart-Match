@@ -1,4 +1,5 @@
 ﻿using Common.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -31,6 +32,7 @@ namespace Smart_Match.Controllers
 
         // POST api/<RequinmentController>
         [HttpPost]
+        [Authorize]
         public RequirementsDto Post([FromBody] RequirementsDto requirements)
         {
             return service.AddItem(requirements);

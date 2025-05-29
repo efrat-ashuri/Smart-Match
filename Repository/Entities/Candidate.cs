@@ -6,9 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Repository.Entities
 {
-
+    public enum eUserRole
+    {
+        Manager,
+        Candidate
+    }
     public class Candidate
     {
         [Key]
@@ -21,8 +27,8 @@ namespace Repository.Entities
         public string Role { get; set; }
         public string Area { get; set; }
         public eEnglishLevel EnglishLevel { get; set; }
-
-        public virtual List<Requirements> ListRequirement { get; set; } 
+        public eUserRole UserRole { get; set; } = eUserRole.Candidate;
+        public virtual List<Requirements> ListRequirement { get; set; }
         public virtual List<Skills> ListSkills { get; set; }
 
     }

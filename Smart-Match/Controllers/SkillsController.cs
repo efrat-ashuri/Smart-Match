@@ -1,4 +1,5 @@
 ﻿using Common.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -32,6 +33,8 @@ namespace Smart_Match.Controllers
 
         // POST api/<SkillsController>
         [HttpPost]
+        [Authorize]
+
         public SkillsDto Post([FromBody] SkillsDto skills)
         {
             return service.AddItem(skills);

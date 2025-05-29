@@ -32,6 +32,7 @@ namespace Smart_Match.Controllers
 
         // POST api/<CandidateController>
         [HttpPost]
+
         public CandidateDto Post([FromBody] CandidateDto candidate)
         {
             return service.AddItem(candidate);
