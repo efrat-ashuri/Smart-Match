@@ -33,14 +33,19 @@ public class RequirementsRepository : IRepository<Requirements>
             .Include(r => r.ListCandidate)
             .FirstOrDefault(r => r.RequirementId == id);
 
+  
     public void UpdateItem(int id, Requirements item)
     {
-        var req = GetById(id);
-        if (req == null) return;
-        req.Description = item.Description;
-        req.AdvantageOrMust = item.AdvantageOrMust;
-        req.ListJob = item.ListJob;
-        req.ListCandidate = item.ListCandidate;
+        var requirnment = context.Requirements
+            .FirstOrDefault(s => s.RequirementId == id);
+
+        if (requirnment == null)
+            return;
+
+        // עדכון שדות פשוטים בלבד
+        requirnment.Description = item.Description;
+        requirnment.AdvantageOrMust = item.AdvantageOrMust;
+
         context.Save();
     }
 }

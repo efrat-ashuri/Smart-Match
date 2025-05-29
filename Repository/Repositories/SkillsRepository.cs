@@ -35,12 +35,17 @@ public class SkillsRepository : IRepository<Skills>
 
     public void UpdateItem(int id, Skills item)
     {
-        var skill = GetById(id);
-        if (skill == null) return;
+        var skill = context.Skills
+            .FirstOrDefault(s => s.SkillsId == id);
+
+        if (skill == null)
+            return;
+
+        // עדכון שדות פשוטים בלבד
         skill.Name = item.Name;
         skill.Mark = item.Mark;
-        skill.ListJob = item.ListJob;
-        skill.ListCandidate = item.ListCandidate;
+
         context.Save();
     }
+
 }

@@ -43,10 +43,10 @@ namespace Service.servicess
         {
             return mapper.Map<Job, JobDto>(repository.GetById(id));
         }
-
         public void UpdateItem(int id, JobDto item)
         {
-            repository.UpdateItem(id, mapper.Map<JobDto, Job>(item));
+            Job jobEntity = mapper.Map<JobDto, Job>(item);
+            repository.UpdateItem(id, jobEntity);
         }
     }
 }

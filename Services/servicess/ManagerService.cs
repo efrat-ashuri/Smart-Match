@@ -43,7 +43,8 @@ namespace Service.servicess
 
         public void UpdateItem(int id, ManagerDto item)
         {
-            repository.UpdateItem(id, mapper.Map<ManagerDto, Manager>(item));
+            Manager managerEntity = mapper.Map<ManagerDto, Manager>(item);
+            repository.UpdateItem(id, managerEntity);
         }
     }
 }

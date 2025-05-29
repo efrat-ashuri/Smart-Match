@@ -42,9 +42,11 @@ namespace Service.servicess
             return mapper.Map<Requirements, RequirementsDto>(repository.GetById(id));
         }
 
+
         public void UpdateItem(int id, RequirementsDto item)
         {
-            repository.UpdateItem(id, mapper.Map<RequirementsDto, Requirements>(item));
+            Requirements requirementEntity = mapper.Map<RequirementsDto, Requirements>(item);
+            repository.UpdateItem(id, requirementEntity);
         }
     }
 }

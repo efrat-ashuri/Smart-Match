@@ -38,11 +38,18 @@ namespace Repository.Repositories
                 .Include(c => c.ListSkills)
                 .FirstOrDefault(c => c.CandidateId == id);
 
+     
         public void UpdateItem(int id, Candidate item)
         {
-            var candidate = GetById(id);
-            if (candidate == null) return;
+            var candidate = context.Candidates
+                .Include(c => c.ListSkills)
+                .Include(c => c.ListRequirement)
+                .FirstOrDefault(c => c.CandidateId == id);
 
+            if (candidate == null)
+                return;
+
+            // עדכון שדות פשוטים
             candidate.Name = item.Name;
             candidate.Phone = item.Phone;
             candidate.Email = item.Email;
@@ -50,9 +57,31 @@ namespace Repository.Repositories
             candidate.EnglishLevel = item.EnglishLevel;
             candidate.Area = item.Area;
             candidate.Role = item.Role;
-            candidate.ListRequirement = item.ListRequirement;
-            candidate.ListSkills = item.ListSkills;
+
+            // עדכון Skills
+            foreach (var skillDto in item.ListSkills)
+            {
+                var skill = candidate.ListSkills.FirstOrDefault(s => s.SkillsId == skillDto.SkillsId);
+                if (skill != null)
+                {
+                    skill.Name = skillDto.Name;
+                    skill.Mark = skillDto.Mark;
+                }
+            }
+
+            // עדכון Requirements
+            foreach (var reqDto in item.ListRequirement)
+            {
+                var req = candidate.ListRequirement.FirstOrDefault(r => r.RequirementId == reqDto.RequirementId);
+                if (req != null)
+                {
+                    req.Description = reqDto.Description;
+                    req.AdvantageOrMust = reqDto.AdvantageOrMust;
+                }
+            }
+
             context.Save();
         }
+
     }
 }
