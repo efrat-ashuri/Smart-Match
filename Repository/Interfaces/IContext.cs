@@ -9,5 +9,6 @@ public interface IContext
     DbSet<Manager> Managers { get; set; }
     DbSet<Requirements> Requirements { get; set; }
     DbSet<Skills> Skills { get; set; }
+    DbSet<User> Users { get; set; }
     void Save();
 }

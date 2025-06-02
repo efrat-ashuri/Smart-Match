@@ -12,11 +12,9 @@ namespace Repository.Entities
         [Key]
         public int ManagerId { get; set; }
         public string Name { get; set; }
-
-
         public string Email { get; set; }
         public string Password { get; set; }
-        public eUserRole UserRole { get; set; } = eUserRole.Manager;
+        public eUserRole ManagerRole { get; set; } = eUserRole.Manager;
         public virtual List<Job> Jobs { get; set; }
     }
 }

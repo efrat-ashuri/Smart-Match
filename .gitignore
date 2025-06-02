@@ -45,4 +45,6 @@ _ReSharper*/
 **/Directory.Build.props
 *.csproj.user
 
+.vs/
+*.bin
 

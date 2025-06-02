@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Repository.Repositories;
 using Service.Interfaces;
+using Service.services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Service.servicess
             services.AddScoped<IService<JobDto>, JobService>();
             services.AddScoped<IService<RequirementsDto>, RequirementsService>();
             services.AddScoped<IService<SkillsDto>, SkillsService>();
+            services.AddScoped<IService<UserDto>, UserService>();
             services.AddAutoMapper(typeof(MyMapper));
             return services;
         }

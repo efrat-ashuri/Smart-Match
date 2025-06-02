@@ -14,7 +14,7 @@ namespace Mock
         public DbSet<Requirements> Requirements { get; set; }
         public DbSet<Skills> Skills { get; set; }
    
-
+        public DbSet<User> Users { get; set; }
         // הגדרת חיבור למסד הנתונים
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

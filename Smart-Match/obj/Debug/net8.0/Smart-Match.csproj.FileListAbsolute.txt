@@ -170,4 +170,3 @@ C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\r
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.pdb
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.genruntimeconfig.cache
 C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\ref\Smart-Match.dll
-C:\Users\IMOE001\Desktop\project-good\Smart-Match\Smart-Match\obj\Debug\net8.0\Smart-Match.MvcApplicationPartsAssemblyInfo.cs

@@ -22,7 +22,7 @@ namespace Repository.Repositories
             services.AddScoped<IRepository<Job>, JobRepository>();
             services.AddScoped<IRepository<Requirements>, RequirementsRepository>();
             services.AddScoped<IRepository<Skills>, SkillsRepository>();
-
+            services.AddScoped<IRepository<User>, UserRepository>();
             return services;
         }
     }
