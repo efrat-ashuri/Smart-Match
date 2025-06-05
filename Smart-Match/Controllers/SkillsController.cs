@@ -15,43 +15,43 @@ namespace Smart_Match.Controllers
         private readonly IService<SkillsDto> service;
         public SkillsController(IService<SkillsDto> service)
         {
-                this.service=service;
+            this.service = service;
         }
         // GET: api/<SkillsController>
         [HttpGet]
-        public List<SkillsDto> Get()
+        public async Task<List<SkillsDto>> Get()
         {
-            return service.GetAll().ToList();
+            return await service.GetAll();
         }
 
         // GET api/<SkillsController>/5
         [HttpGet("{id}")]
-        public SkillsDto Get(int id)
+        public async Task<SkillsDto> Get(int id)
         {
-            return service.GetById(id);
+            return await service.GetById(id);
         }
 
         // POST api/<SkillsController>
         [HttpPost]
         [Authorize]
 
-        public SkillsDto Post([FromBody] SkillsDto skills)
+        public async Task<SkillsDto> Post([FromBody] SkillsDto skills)
         {
-            return service.AddItem(skills);
+            return await service.AddItem(skills);
         }
 
         // PUT api/<SkillsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] SkillsDto skills)
+        public async Task Put(int id, [FromBody] SkillsDto skills)
         {
-            service.UpdateItem(id, skills);
+            await service.UpdateItem(id, skills);
         }
 
         // DELETE api/<SkillsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            service.DeleteItem(id);
+            await service.DeleteItem(id);
         }
     }
 }

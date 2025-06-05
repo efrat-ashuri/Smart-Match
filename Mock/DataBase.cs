@@ -3,8 +3,8 @@ using Repository.Entities;
 using System;
 
 namespace Mock
-{ 
-    public class SmartMatchDbContext :DbContext,IContext
+{
+    public class SmartMatchDbContext : DbContext, IContext
 
     {
         // DbSets
@@ -13,14 +13,14 @@ namespace Mock
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Requirements> Requirements { get; set; }
         public DbSet<Skills> Skills { get; set; }
-   
+
         public DbSet<User> Users { get; set; }
         // הגדרת חיבור למסד הנתונים
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database=Smart-MatchDB;trusted_connection=true");
         }
-        
+
         // קונפיגורציה של קשרים בין טבלאות
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -87,9 +87,9 @@ namespace Mock
             //    .HasForeignKey(cs => cs.IdSkills)
             //    .OnDelete(DeleteBehavior.Restrict);
         }
-        public void Save()
+        public async Task Save()
         {
-            this.SaveChanges();
+            await this.SaveChangesAsync();
         }
 
     }

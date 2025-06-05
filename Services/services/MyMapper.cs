@@ -32,6 +32,7 @@ namespace Service.servicess
 
             CreateMap<Skills, SkillsDto>().ReverseMap();
             CreateMap<Requirements, RequirementsDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
         }
     }
 }

@@ -21,30 +21,30 @@ namespace Service.servicess
             this.mapper = mapper;
         }
 
-        public SkillsDto AddItem(SkillsDto item)
+        public async Task<SkillsDto> AddItem(SkillsDto item)
         {
-            return mapper.Map<Skills, SkillsDto>(repository.AddItem(mapper.Map<SkillsDto, Skills>(item)));
+            return mapper.Map<Skills, SkillsDto>(await repository.AddItem(mapper.Map<SkillsDto, Skills>(item)));
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            repository.DeleteItem(id);
+            await repository.DeleteItem(id);
         }
 
-        public List<SkillsDto> GetAll()
+        public async Task<List<SkillsDto>> GetAll()
         {
-            return mapper.Map<List<Skills>, List<SkillsDto>>(repository.GetAll());
+            return mapper.Map<List<Skills>, List<SkillsDto>>(await repository.GetAll());
         }
 
-        public SkillsDto GetById(int id)
+        public async Task<SkillsDto> GetById(int id)
         {
-            return mapper.Map<Skills, SkillsDto>(repository.GetById(id));
+            return mapper.Map<Skills, SkillsDto>(await repository.GetById(id));
         }
 
-        public void UpdateItem(int id, SkillsDto item)
+        public async Task UpdateItem(int id, SkillsDto item)
         {
             Skills skillsEntity = mapper.Map<SkillsDto, Skills>(item);
-            repository.UpdateItem(id, skillsEntity);
+            await repository.UpdateItem(id, skillsEntity);
         }
     }
 }

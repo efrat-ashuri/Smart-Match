@@ -1,4 +1,5 @@
 ﻿using Common.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -6,6 +7,7 @@ using Service.Interfaces;
 
 namespace Smart_Match.Controllers
 {
+    [Authorize(Roles = "Candidate")]
     [Route("api/[controller]")]
     [ApiController]
     public class CandidateController : ControllerBase
@@ -15,41 +17,41 @@ namespace Smart_Match.Controllers
         {
             this.service = service;
         }
-      
+
         // GET: api/<CandidateController>
         [HttpGet]
-        public List<CandidateDto> Get()
+        public async Task<List<CandidateDto>> Get()
         {
-            return service.GetAll().ToList();
+            return await service.GetAll();
         }
 
         // GET api/<CandidateController>/5
         [HttpGet("{id}")]
-        public CandidateDto Get(int id)
+        public async Task<CandidateDto> Get(int id)
         {
-            return service.GetById(id);
+            return await service.GetById(id);
         }
 
         // POST api/<CandidateController>
         [HttpPost]
 
-        public CandidateDto Post([FromBody] CandidateDto candidate)
+        public async Task<CandidateDto> Post([FromBody] CandidateDto candidate)
         {
-            return service.AddItem(candidate);
+            return await service.AddItem(candidate);
         }
 
         // PUT api/<CandidateController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CandidateDto candidate)
+        public async Task Put(int id, [FromBody] CandidateDto candidate)
         {
-            service.UpdateItem(id, candidate);
+            await service.UpdateItem(id, candidate);
         }
 
         // DELETE api/<CandidateController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            service.DeleteItem(id);
+            await service.DeleteItem(id);
         }
     }
 }

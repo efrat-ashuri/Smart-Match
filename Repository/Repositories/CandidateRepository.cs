@@ -10,41 +10,40 @@ namespace Repository.Repositories
         private readonly IContext context;
         public CandidateRepository(IContext context) => this.context = context;
 
-        public Candidate AddItem(Candidate item)
+        public async Task<Candidate> AddItem(Candidate item)
         {
-            context.Candidates.Add(item);
-            context.Save();
+            await this.context.Candidates.AddAsync(item);
+            await this.context.Save();
             return item;
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
             var candidate = GetById(id);
-            context.Candidates.Remove(candidate);
-            context.Save();
+            this.context.Candidates.Remove(await candidate);
+            await this.context.Save();
         }
 
-        public List<Candidate> GetAll()
+        public async Task<List<Candidate>> GetAll()
         {
-            Console.WriteLine("fekgdwihjlksqf");
-            return context.Candidates
+            return await context.Candidates
                     .Include(c => c.ListRequirement)
                     .Include(c => c.ListSkills)
-                    .ToList();
+                    .ToListAsync();
         }
-        public Candidate GetById(int id) =>
-            context.Candidates
+        public async Task<Candidate> GetById(int id) =>
+           await context.Candidates
                 .Include(c => c.ListRequirement)
                 .Include(c => c.ListSkills)
-                .FirstOrDefault(c => c.CandidateId == id);
+                .FirstOrDefaultAsync(c => c.CandidateId == id);
 
-     
-        public void UpdateItem(int id, Candidate item)
+
+        public async Task UpdateItem(int id, Candidate item)
         {
-            var candidate = context.Candidates
+            var candidate = await context.Candidates
                 .Include(c => c.ListSkills)
                 .Include(c => c.ListRequirement)
-                .FirstOrDefault(c => c.CandidateId == id);
+                .FirstOrDefaultAsync(c => c.CandidateId == id);
 
             if (candidate == null)
                 return;
@@ -80,8 +79,7 @@ namespace Repository.Repositories
                 }
             }
 
-            context.Save();
+            await context.Save();
         }
-
     }
 }

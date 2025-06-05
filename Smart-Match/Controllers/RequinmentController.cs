@@ -18,38 +18,38 @@ namespace Smart_Match.Controllers
         }
         // GET: api/<RequinmentController>
         [HttpGet]
-        public List<RequirementsDto> Get()
+        public async Task<List<RequirementsDto>> Get()
         {
-            return service.GetAll().ToList();
+            return await service.GetAll();
         }
 
         // GET api/<RequinmentController>/5
         [HttpGet("{id}")]
-        public RequirementsDto Get(int id)
+        public async Task<RequirementsDto> Get(int id)
         {
-            return service.GetById(id);
+            return await service.GetById(id);
         }
 
         // POST api/<RequinmentController>
         [HttpPost]
         [Authorize]
-        public RequirementsDto Post([FromBody] RequirementsDto requirements)
+        public async Task<RequirementsDto> Post([FromBody] RequirementsDto requirements)
         {
-            return service.AddItem(requirements);
+            return await service.AddItem(requirements);
         }
 
         // PUT api/<RequinmentController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] RequirementsDto requirements)
+        public async Task Put(int id, [FromBody] RequirementsDto requirements)
         {
-            service.UpdateItem(id, requirements);
+           await service.UpdateItem(id, requirements);
         }
 
         // DELETE api/<RequinmentController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            service.DeleteItem(id);
+          await  service.DeleteItem(id);
         }
     }
 }

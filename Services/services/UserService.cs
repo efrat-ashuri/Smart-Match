@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Service.services
 {
-    public class UserService:IService<UserDto>
+    public class UserService : IService<UserDto>
     {
         private readonly IRepository<User> repository;
         private readonly IMapper mapper;
@@ -20,30 +20,30 @@ namespace Service.services
             this.repository = repository;
         }
 
-        public UserDto AddItem(UserDto item)
+        public async Task<UserDto> AddItem(UserDto item)
         {
-            return mapper.Map<User, UserDto>(repository.AddItem(mapper.Map<UserDto, User>(item)));
+            return mapper.Map<User, UserDto>(await repository.AddItem(mapper.Map<UserDto, User>(item)));
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            repository.DeleteItem(id);
+            await repository.DeleteItem(id);
         }
 
-        public List<UserDto> GetAll()
+        public async Task<List<UserDto>> GetAll()
         {
-            return mapper.Map<List<User>, List<UserDto>>(repository.GetAll());
+            return mapper.Map<List<User>, List<UserDto>>(await repository.GetAll());
         }
 
-        public UserDto GetById(int id)
+        public async Task<UserDto> GetById(int id)
         {
-            return mapper.Map<User, UserDto>(repository.GetById(id));
+            return mapper.Map<User, UserDto>(await repository.GetById(id));
         }
 
-        public void UpdateItem(int id, UserDto item)
+        public async Task UpdateItem(int id, UserDto item)
         {
             User userEntity = mapper.Map<UserDto, User>(item);
-            repository.UpdateItem(id, userEntity);
+            await repository.UpdateItem(id, userEntity);
         }
     }
 }

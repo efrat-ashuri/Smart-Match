@@ -3,6 +3,7 @@ using Repository.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Repository.Repositories
 {
@@ -11,41 +12,41 @@ namespace Repository.Repositories
         private readonly IContext context;
         public JobRepository(IContext context) => this.context = context;
 
-        public Job AddItem(Job item)
+        public async Task< Job> AddItem(Job item)
         {
-            context.Jobs.Add(item);
-            context.Save();
+           await context.Jobs.AddAsync(item);
+           await context.Save();
             return item;
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
             var job = GetById(id);
-            context.Jobs.Remove(job);
-            context.Save();
+            context.Jobs.Remove(await job);
+            await context.Save();
+        }
+
+        public async Task<List<Job>> GetAll()
+        {
+            return await context.Jobs
+                    .Include(c => c.ListRequirement)
+                    .Include(c => c.ListSkills)
+                    .ToListAsync();
         }
 
 
-
-        public List<Job> GetAll() =>
-        context.Jobs
-            .Include(j => j.ListRequirement)
-            .Include(j => j.ListSkills)
-            .ToList();
-
-
-        public Job GetById(int id) =>
-         context.Jobs
+        public async Task< Job> GetById(int id) =>
+          await  context.Jobs
         .Include(j => j.ListRequirement)
         .Include(j => j.ListSkills)
-        .FirstOrDefault(j => j.JobId == id);
+        .FirstOrDefaultAsync(j => j.JobId == id);
 
-        public void UpdateItem(int id, Job item)
+        public async Task UpdateItem(int id, Job item)
         {
-            var job = context.Jobs
+            var job =await context.Jobs
                 .Include(c => c.ListSkills)
                 .Include(c => c.ListRequirement)
-                .FirstOrDefault(c => c.JobId == id);
+                .FirstOrDefaultAsync(c => c.JobId == id);
 
             if (job == null)
                 return;
@@ -81,7 +82,7 @@ namespace Repository.Repositories
                 }
             }
 
-            context.Save();
+           await context.Save();
         }
     }
 }

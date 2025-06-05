@@ -21,30 +21,30 @@ namespace Service.servicess
             this.mapper = mapper;
         }
 
-        public ManagerDto AddItem(ManagerDto item)
+        public async Task<ManagerDto> AddItem(ManagerDto item)
         {
-            return mapper.Map<Manager, ManagerDto>(repository.AddItem(mapper.Map<ManagerDto, Manager>(item)));
+            return mapper.Map<Manager, ManagerDto>(await repository.AddItem(mapper.Map<ManagerDto, Manager>(item)));
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            repository.DeleteItem(id);
+            await repository.DeleteItem(id);
         }
 
-        public List<ManagerDto> GetAll()
+        public async Task<List<ManagerDto>> GetAll()
         {
-            return mapper.Map<List<Manager>, List<ManagerDto>>(repository.GetAll());
+            return mapper.Map<List<Manager>, List<ManagerDto>>(await repository.GetAll());
         }
 
-        public ManagerDto GetById(int id)
+        public async Task <ManagerDto> GetById(int id)
         {
-            return mapper.Map<Manager, ManagerDto>(repository.GetById(id));
+            return mapper.Map<Manager, ManagerDto>(await repository.GetById(id));
         }
 
-        public void UpdateItem(int id, ManagerDto item)
+        public async Task UpdateItem(int id, ManagerDto item)
         {
             Manager managerEntity = mapper.Map<ManagerDto, Manager>(item);
-            repository.UpdateItem(id, managerEntity);
+           await repository.UpdateItem(id, managerEntity);
         }
     }
 }

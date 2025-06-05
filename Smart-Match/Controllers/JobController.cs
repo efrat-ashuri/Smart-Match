@@ -15,41 +15,41 @@ namespace Smart_Match.Controllers
         private readonly IService<JobDto> service;
         public JobController(IService<JobDto> service)
         {
-                this.service = service;
+            this.service = service;
         }
         // GET: api/<JobController>
         [HttpGet]
-        public List<JobDto> Get()
+        public async Task<List<JobDto>> Get()
         {
-            return service.GetAll().ToList();
+            return await service.GetAll();
         }
 
         // GET api/<JobController>/5
         [HttpGet("{id}")]
-        public JobDto Get(int id)
+        public async Task<JobDto> Get(int id)
         {
-            return service.GetById(id);
+            return await service.GetById(id);
         }
 
         // POST api/<JobController>
         [HttpPost]
-        public JobDto Post([FromBody] JobDto Job)
+        public async Task<JobDto> Post([FromBody] JobDto Job)
         {
-            return service.AddItem(Job);
+            return await service.AddItem(Job);
         }
 
         // PUT api/<JobController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] JobDto job)
+        public async Task Put(int id, [FromBody] JobDto job)
         {
-            service.UpdateItem(id, job);
+            await service.UpdateItem(id, job);
         }
 
         // DELETE api/<JobController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            service.DeleteItem(id);
+            await service.DeleteItem(id);
         }
     }
 }

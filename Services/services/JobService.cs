@@ -21,32 +21,32 @@ namespace Service.servicess
             this.repository = repository;
             this.mapper = mapper;
         }
-        public JobDto AddItem(JobDto item)
+        public async Task<JobDto> AddItem(JobDto item)
         {
             Job job = mapper.Map<JobDto, Job>(item);
             job.Manager = null;
             job.ManagerId = item.ManagerId;
-            return mapper.Map<Job, JobDto>(repository.AddItem(mapper.Map<JobDto, Job>(item)));
+            return mapper.Map<Job, JobDto>( await repository.AddItem(mapper.Map<JobDto, Job>(item)));
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            repository.DeleteItem(id);
+           await repository.DeleteItem(id);
         }
 
-        public List<JobDto> GetAll()
+        public async Task< List<JobDto>> GetAll()
         {
-            return mapper.Map<List<Job>, List<JobDto>>(repository.GetAll());
+            return  mapper.Map<List<Job>, List<JobDto>>(await repository.GetAll());
         }
 
-        public JobDto GetById(int id)
+        public async Task< JobDto> GetById(int id)
         {
-            return mapper.Map<Job, JobDto>(repository.GetById(id));
+            return mapper.Map<Job, JobDto>(await repository.GetById(id));
         }
-        public void UpdateItem(int id, JobDto item)
+        public async Task UpdateItem(int id, JobDto item)
         {
             Job jobEntity = mapper.Map<JobDto, Job>(item);
-            repository.UpdateItem(id, jobEntity);
+            await repository.UpdateItem(id, jobEntity);
         }
     }
 }

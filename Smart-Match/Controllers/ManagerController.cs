@@ -9,6 +9,7 @@ namespace Smart_Match.Controllers
 {
     //Authenticate-אימות משתמש
     //Authorization-הרשאת גישה
+    [Authorize(Roles = "Manager")]
 
     [Route("api/[controller]")]
     [ApiController]
@@ -22,39 +23,40 @@ namespace Smart_Match.Controllers
 
         // GET: api/<ManagerController>
         [HttpGet]
-        [Authorize]
-        public List<ManagerDto> Get()
+        public async Task<List<ManagerDto>> Get()
         {
-            return service.GetAll().ToList();
+            return await service.GetAll();
         }
 
         // GET api/<ManagerController>/5
         [HttpGet("{id}")]
-        public ManagerDto Get(int id)
+        public async Task <ManagerDto> Get(int id)
         {
-            return service.GetById(id);
+            return await service.GetById(id);
+           
+
         }
 
         // POST api/<ManagerController>
         [HttpPost]
-        [Authorize (Roles ="Manager")]//הכוונה פה זה לתת אופציה רק למשתמש שילו token שיש לו הרשאת גישה(לדוגמא מי שיש לו תפקיד מסוים)
-        public ManagerDto Post([FromBody] ManagerDto manager)
+        //[Authorize (Roles ="Manager")]//הכוונה פה זה לתת אופציה רק למשתמש שילו token שיש לו הרשאת גישה(לדוגמא מי שיש לו תפקיד מסוים)
+        public async Task<ManagerDto> Post([FromBody] ManagerDto manager)
         {
-          return  service.AddItem(manager);
+          return await service.AddItem(manager);
         }
 
         // PUT api/<ManagerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] ManagerDto manager)
+        public async Task Put(int id, [FromBody] ManagerDto manager)
         {
-            service.UpdateItem(id, manager);
+          await  service.UpdateItem(id, manager);
         }
 
         // DELETE api/<ManagerController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-           service.DeleteItem(id);
+           await service.DeleteItem(id);
         }
     }
 

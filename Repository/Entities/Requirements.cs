@@ -9,7 +9,7 @@ namespace Repository.Entities
 {
     public enum eAdvanOrMust
     {
-        Advantege, Must
+        Advantage, Must
     }
 
     public class Requirements

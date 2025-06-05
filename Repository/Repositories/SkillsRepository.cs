@@ -7,36 +7,36 @@ public class SkillsRepository : IRepository<Skills>
     private readonly IContext context;
     public SkillsRepository(IContext context) => this.context = context;
 
-    public Skills AddItem(Skills item)
+    public async Task<Skills> AddItem(Skills item)
     {
-        context.Skills.Add(item);
-        context.Save();
+        await context.Skills.AddAsync(item);
+        await context.Save();
         return item;
     }
 
-    public void DeleteItem(int id)
+    public async Task DeleteItem(int id)
     {
         var skill = GetById(id);
-        context.Skills.Remove(skill);
-        context.Save();
+        context.Skills.Remove(await skill);
+        await context.Save();
     }
 
-    public List<Skills> GetAll() =>
-        context.Skills
+    public async Task<List<Skills>> GetAll() =>
+      await context.Skills
             .Include(s => s.ListJob)
             .Include(s => s.ListCandidate)
-            .ToList();
+            .ToListAsync();
 
-    public Skills GetById(int id) =>
-        context.Skills
+    public async Task<Skills> GetById(int id) =>
+       await context.Skills
             .Include(s => s.ListJob)
             .Include(s => s.ListCandidate)
-            .FirstOrDefault(s => s.SkillsId == id);
+            .FirstOrDefaultAsync(s => s.SkillsId == id);
 
-    public void UpdateItem(int id, Skills item)
+    public async Task UpdateItem(int id, Skills item)
     {
-        var skill = context.Skills
-            .FirstOrDefault(s => s.SkillsId == id);
+        var skill =await context.Skills
+            .FirstOrDefaultAsync(s => s.SkillsId == id);
 
         if (skill == null)
             return;
@@ -45,7 +45,7 @@ public class SkillsRepository : IRepository<Skills>
         skill.Name = item.Name;
         skill.Mark = item.Mark;
 
-        context.Save();
+       await context.Save();
     }
 
 }

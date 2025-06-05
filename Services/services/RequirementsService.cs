@@ -21,32 +21,32 @@ namespace Service.servicess
             this.mapper = mapper;
         }
 
-        public RequirementsDto AddItem(RequirementsDto item)
+        public  async Task< RequirementsDto> AddItem(RequirementsDto item)
         {
-            return mapper.Map<Requirements, RequirementsDto>(repository.AddItem(mapper.Map<RequirementsDto, Requirements>(item)));
+            return mapper.Map<Requirements, RequirementsDto>(await repository.AddItem(mapper.Map<RequirementsDto, Requirements>(item)));
             throw new NotImplementedException();
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            repository.DeleteItem(id);
+           await repository.DeleteItem(id);
         }
 
-        public List<RequirementsDto> GetAll()
+        public async Task <List<RequirementsDto>> GetAll()
         {
-            return mapper.Map<List<Requirements>, List<RequirementsDto>>(repository.GetAll());
+            return mapper.Map<List<Requirements>, List<RequirementsDto>>(await repository.GetAll());
         }
 
-        public RequirementsDto GetById(int id)
+        public async Task< RequirementsDto> GetById(int id)
         {
-            return mapper.Map<Requirements, RequirementsDto>(repository.GetById(id));
+            return mapper.Map<Requirements, RequirementsDto>(await repository.GetById(id));
         }
 
 
-        public void UpdateItem(int id, RequirementsDto item)
+        public async Task UpdateItem(int id, RequirementsDto item)
         {
             Requirements requirementEntity = mapper.Map<RequirementsDto, Requirements>(item);
-            repository.UpdateItem(id, requirementEntity);
+            await repository.UpdateItem(id, requirementEntity);
         }
     }
 }

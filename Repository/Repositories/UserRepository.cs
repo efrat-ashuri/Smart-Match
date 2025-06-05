@@ -9,37 +9,37 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class UserRepository:IRepository<User>
+    public class UserRepository : IRepository<User>
     {
         private readonly IContext context;
         public UserRepository(IContext context) => this.context = context;
 
-        public User AddItem(User item)
+        public async Task<User> AddItem(User item)
         {
-            context.Users.Add(item);
-            context.Save();
+            await context.Users.AddAsync(item);
+            await context.Save();
             return item;
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
             var user = GetById(id);
-            context.Users.Remove(user);
-            context.Save();
+            context.Users.Remove(await user);
+            await context.Save();
         }
 
-        public List<User> GetAll()
+        public async Task<List<User>> GetAll()
         {
-            return context.Users.ToList();
+            return await context.Users.ToListAsync();
         }
-        public User GetById(int id) =>
-            context.Users.FirstOrDefault(c => c.Id == id);
+        public async Task<User> GetById(int id) =>
+          await context.Users.FirstOrDefaultAsync(c => c.Id == id);
 
 
-        public void UpdateItem(int id, User item)
+        public async Task UpdateItem(int id, User item)
         {
-            var user = context.Users
-                .FirstOrDefault(c => c.Id == id);
+            var user =await context.Users
+                .FirstOrDefaultAsync(c => c.Id == id);
 
             if (user == null)
                 return;
@@ -48,7 +48,7 @@ namespace Repository.Repositories
             user.Email = item.Email;
             user.Name = item.Name;
             user.Password = item.Password;
-            context.Save();
+           await context.Save();
         }
 
     }

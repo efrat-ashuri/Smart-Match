@@ -7,46 +7,46 @@ public class ManagerRepository : IRepository<Manager>
     private readonly IContext context;
     public ManagerRepository(IContext context) => this.context = context;
 
-    public Manager AddItem(Manager item)
+    public async Task<Manager> AddItem(Manager item)
     {
-        context.Managers.Add(item);
-        context.Save();
+        await context.Managers.AddAsync(item);
+        await context.Save();
         return item;
     }
 
-    public void DeleteItem(int id)
+    public async Task DeleteItem(int id)
     {
         var manager = GetById(id);
-        context.Managers.Remove(manager);
-        context.Save();
+        context.Managers.Remove(await manager);
+        await context.Save();
     }
 
-    public List<Manager> GetAll() =>
-      context.Managers
+    public async Task<List<Manager>> GetAll() =>
+     await context.Managers
         .Include(m => m.Jobs)
             .ThenInclude(j => j.ListSkills)
         .Include(m => m.Jobs)
             .ThenInclude(j => j.ListRequirement)
-        .ToList();
+        .ToListAsync();
 
 
-    public Manager GetById(int id) =>
-        context.Managers
+    public async Task<Manager> GetById(int id) =>
+       await context.Managers
       .Include(m => m.Jobs)
             .ThenInclude(j => j.ListSkills)
         .Include(m => m.Jobs)
-            .ThenInclude(j => j.ListRequirement).FirstOrDefault(m => m.ManagerId == id);
+            .ThenInclude(j => j.ListRequirement).FirstOrDefaultAsync(m => m.ManagerId == id);
 
 
 
-    public void UpdateItem(int id, Manager item)
+    public async Task UpdateItem(int id, Manager item)
     {
-        var manager = context.Managers
+        var manager =await context.Managers
             .Include(m => m.Jobs)
                 .ThenInclude(j => j.ListSkills)
             .Include(m => m.Jobs)
                 .ThenInclude(j => j.ListRequirement)
-            .FirstOrDefault(m => m.ManagerId == id);
+            .FirstOrDefaultAsync(m => m.ManagerId == id);
 
         if (manager == null)
             return;
@@ -121,7 +121,7 @@ public class ManagerRepository : IRepository<Manager>
             }
         }
 
-        context.Save();
+       await context.Save();
     }
 
 }

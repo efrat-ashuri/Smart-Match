@@ -7,41 +7,41 @@ public class RequirementsRepository : IRepository<Requirements>
     private readonly IContext context;
     public RequirementsRepository(IContext context) => this.context = context;
 
-    public Requirements AddItem(Requirements item)
+    public async Task<Requirements> AddItem(Requirements item)
     {
-        context.Requirements.Add(item);
-        context.Save();
+        await context.Requirements.AddAsync(item);
+        await context.Save();
         return item;
     }
 
-    public void DeleteItem(int id)
+    public async Task DeleteItem(int id)
     {
         var req = GetById(id);
-        context.Requirements.Remove(req);
-        context.Save();
+        context.Requirements.Remove(await req);
+        await context.Save();
     }
 
-    public List<Requirements> GetAll() =>
-        context.Requirements
+    public async Task<List<Requirements>> GetAll() =>
+       await context.Requirements
             .Include(r => r.ListJob)
             .Include(r => r.ListCandidate)
-            .ToList();
+            .ToListAsync();
 
-    public Requirements GetById(int id) =>
-        context.Requirements
+    public async Task<Requirements> GetById(int id) =>
+      await context.Requirements
             .Include(r => r.ListJob)
             .Include(r => r.ListCandidate)
-            .FirstOrDefault(r => r.RequirementId == id);
+            .FirstOrDefaultAsync(r => r.RequirementId == id);
 
-  
-    public void UpdateItem(int id, Requirements item)
+
+    public async Task UpdateItem(int id, Requirements item)
     {
-        var requirnment = context.Requirements
-            .FirstOrDefault(s => s.RequirementId == id);
+        var requirnment =await context.Requirements
+            .FirstOrDefaultAsync(s => s.RequirementId == id);
 
         if (requirnment == null)
             return;
-       
+
         // עדכון שדות פשוטים בלבד
         requirnment.Description = item.Description;
         requirnment.AdvantageOrMust = item.AdvantageOrMust;
