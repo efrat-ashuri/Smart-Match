@@ -10,3 +10,5 @@ export const getCategories = async () => {
 export const signUp = async () => {
 
 }
+
+

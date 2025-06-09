@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "david",
+      "email": "david@email.com"
+    },
+    {
+      "id": "1938",
+      "username": "efrat",
+      "email": "v@dfgbhg.com"
+    },
+    {
+      "id": "82e5",
+      "username": "כע",
+      "email": "vfgn@gmail.com"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "1",
+      "title": "מפתח React",
+      "description": "פיתוח אפליקציות"
+    }
+  ],
+  "skills": [
+    {
+      "id": "3dfa",
+      "name": "FS",
+      "level": "FG"
+    }
+  ],
+  "managers": [
+    {
+      "id": "6813",
+      "name": "sasi cohen",
+      "email": "sasi@gmail.co.il"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "f4c5",
+      "name": "chani",
+      "email": "chani123@gmail.com"
+    }
+  ],
+  "requirnments": [
+    {
+      "id": "5411",
+      "title": "כנ",
+      "description": "ראט"
+    }
+  ]
+}
