@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 const navStyle = {
   background: "#1976d2",
   padding: "0 24px",
@@ -28,7 +29,14 @@ const activeStyle: React.CSSProperties = {
   color: "#fff",
 };
 
-const Navbar: React.FC = () => (
+type UserType = "none" | "manager" | "candidate";
+
+interface NavbarProps {
+  userType: UserType;
+  setUserType: React.Dispatch<React.SetStateAction<UserType>>;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ userType, setUserType }) => (
   <nav style={navStyle}>
     <NavLink
       to="/"
@@ -39,54 +47,94 @@ const Navbar: React.FC = () => (
     >
       דף הבית
     </NavLink>
-    <NavLink
-      to="/users"
-      style={({ isActive }) =>
-        isActive ? { ...linkStyle, ...activeStyle } : linkStyle
-      }
+    {userType === "manager" && (
+      <>
+        <NavLink
+          to="/users"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          משתמשים
+        </NavLink>
+        <NavLink
+          to="/jobs"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          משרות
+        </NavLink>
+        <NavLink
+          to="/skills"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          כישורים
+        </NavLink>
+        <NavLink
+          to="/managers"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          מנהלים
+        </NavLink>
+        <NavLink
+          to="/candidates"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          מועמדים
+        </NavLink>
+        <NavLink
+          to="/requirnments"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          דרישות
+        </NavLink>
+      </>
+    )}
+    {userType === "candidate" && (
+      <>
+        <NavLink
+          to="/candidates"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          מועמדים
+        </NavLink>
+        <NavLink
+          to="/jobs"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+        >
+          משרות
+        </NavLink>
+      </>
+    )}
+    <button
+      onClick={() => setUserType("none")}
+      style={{
+        marginRight: 16,
+        background: "#fff",
+        color: "#1976d2",
+        border: "none",
+        borderRadius: 6,
+        padding: "8px 18px",
+        fontWeight: "bold",
+        fontSize: 17,
+        cursor: "pointer",
+      }}
     >
-      משתמשים
-    </NavLink>
-    <NavLink
-      to="/jobs"
-      style={({ isActive }) =>
-        isActive ? { ...linkStyle, ...activeStyle } : linkStyle
-      }
-    >
-      משרות
-    </NavLink>
-    <NavLink
-      to="/skills"
-      style={({ isActive }) =>
-        isActive ? { ...linkStyle, ...activeStyle } : linkStyle
-      }
-    >
-      כישורים
-    </NavLink>
-    <NavLink
-      to="/managers"
-      style={({ isActive }) =>
-        isActive ? { ...linkStyle, ...activeStyle } : linkStyle
-      }
-    >
-      מנהלים
-    </NavLink>
-    <NavLink
-      to="/candidates"
-      style={({ isActive }) =>
-        isActive ? { ...linkStyle, ...activeStyle } : linkStyle
-      }
-    >
-      מועמדים
-    </NavLink>
-    <NavLink
-      to="/requirnments"
-      style={({ isActive }) =>
-        isActive ? { ...linkStyle, ...activeStyle } : linkStyle
-      }
-    >
-      דרישות
-    </NavLink>
+      התנתק
+    </button>
   </nav>
 );
 

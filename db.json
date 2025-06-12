@@ -2,25 +2,83 @@
   "users": [
     {
       "id": "1",
-      "username": "david",
+      "name": "david",
       "email": "david@email.com"
     },
     {
       "id": "1938",
-      "username": "efrat",
+      "name": "efrat",
       "email": "v@dfgbhg.com"
     },
     {
       "id": "82e5",
-      "username": "כע",
+      "name": "כע",
       "email": "vfgn@gmail.com"
+    },
+    {
+      "id": "9808",
+      "name": "sdfg",
+      "email": "fcgvb@gmail.com",
+      "phone": "c5232"
     }
   ],
   "jobs": [
     {
       "id": "1",
       "title": "מפתח React",
-      "description": "פיתוח אפליקציות"
+      "description": "פיתוח אפליקציות",
+      "requirements": [
+        "average 85+",
+        "flexible"
+      ],
+      "skills": [
+        "javaScript",
+        "html",
+        "react",
+        "css"
+      ]
+    },
+    {
+      "id": "b354",
+      "title": "FS development",
+      "description": "good job 3 xperience years",
+      "requirements": [
+        "good",
+        "invest"
+      ],
+      "skills": [
+        "c++",
+        "c",
+        "java"
+      ]
+    },
+    {
+      "id": "5f13",
+      "title": "AI",
+      "description": "good job",
+      "requirements": [
+        "good",
+        "תואר רביעי"
+      ],
+      "skills": [
+        "JAVA"
+      ]
+    },
+    {
+      "id": "cfbb",
+      "title": "AI Developer",
+      "description": "good job in jerusalem",
+      "requirements": [
+        "5 experience years",
+        "תואר ראשון",
+        "tidy"
+      ],
+      "skills": [
+        "c",
+        "c++",
+        "linux",
+        "java"
+      ]
     }
   ],
   "skills": [
@@ -28,13 +86,46 @@
       "id": "3dfa",
       "name": "FS",
       "level": "FG"
+    },
+    {
+      "id": "c91a",
+      "name": "AI Developer"
     }
   ],
   "managers": [
     {
       "id": "6813",
       "name": "sasi cohen",
-      "email": "sasi@gmail.co.il"
+      "email": "sasi@gmail.co.il",
+      "password": "sasi",
+      "managerRole": "Candidate"
+    },
+    {
+      "id": "35c9",
+      "name": "ahuvi",
+      "email": "ahuvi@gmail.com",
+      "password": "ahuvi1234",
+      "managerRole": "Manager"
+    },
+    {
+      "id": "9236",
+      "name": "efrat",
+      "email": "efrat@gmail.com",
+      "password": "1234",
+      "managerRole": "Manager"
+    },
+    {
+      "id": "3f79",
+      "name": "efi",
+      "email": "efi1234@gmail.com",
+      "password": "efi1234"
+    },
+    {
+      "id": "a9ed",
+      "name": "avi",
+      "email": "avi@gmail.com",
+      "password": "aci147",
+      "managerRole": "Manager"
     }
   ],
   "candidates": [
@@ -42,13 +133,100 @@
       "id": "f4c5",
       "name": "chani",
       "email": "chani123@gmail.com"
+    },
+    {
+      "id": "d411",
+      "name": "efrat",
+      "email": "efrat@gmail.com",
+      "phone": "0583253400",
+      "experienceYears": 2,
+      "role": "full stack development",
+      "area": "בני ברק",
+      "englishLevel": "Native"
+    },
+    {
+      "id": "110f",
+      "name": "efrat",
+      "email": "yeyya@gmail.co.il",
+      "phone": "02589621",
+      "experienceYears": 4,
+      "role": "ai",
+      "area": "bney brak",
+      "englishLevel": "Native"
+    },
+    {
+      "id": "a743",
+      "name": "efrat",
+      "email": "efrat@gmail.com",
+      "phone": "123456789",
+      "experienceYears": 4,
+      "role": "AI",
+      "area": "BB",
+      "englishLevel": "Fluent",
+      "requirements": [
+        "neat",
+        "invest",
+        "good"
+      ],
+      "skills": [
+        "c",
+        "c++c#"
+      ]
+    },
+    {
+      "id": "a618",
+      "name": "efrat",
+      "email": "fv@gmail.com",
+      "phone": "41",
+      "experienceYears": 4,
+      "role": "fg",
+      "area": "gfbv",
+      "englishLevel": "Basic",
+      "requirements": [],
+      "skills": []
+    },
+    {
+      "id": "c427",
+      "name": "eli",
+      "email": "eli@gmail.com",
+      "phone": "0521478888",
+      "experienceYears": 6,
+      "role": "AI Developer",
+      "area": "Bney Brak",
+      "englishLevel": "Basic",
+      "requirements": [
+        "תואר ראשון",
+        "עבודה בצוות",
+        "תעודה מקצועית לא ממוסד"
+      ],
+      "skills": [
+        "Frontend",
+        "C#"
+      ]
+    },
+    {
+      "id": "0750",
+      "name": "אפרת אשורי",
+      "email": " efrat",
+      "password": "1234"
     }
   ],
-  "requirnments": [
+  "requirements": [
     {
-      "id": "5411",
-      "title": "כנ",
-      "description": "ראט"
+      "id": "cd63",
+      "name": "תואר ראשון"
+    },
+    {
+      "id": "f38b",
+      "name": "flexible"
+    },
+    {
+      "id": "c021",
+      "name": "organize"
+    },
+    {
+      "id": "3782",
+      "name": "serious"
     }
   ]
 }
