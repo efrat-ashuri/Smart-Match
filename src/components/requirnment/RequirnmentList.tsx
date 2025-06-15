@@ -5,7 +5,7 @@ type Requirement = {
   name: string;
 };
 
-const API_URL = "http://localhost:3001/requirements";
+const API_URL = "http://localhost:5297/requirements";
 
 interface RequirementListProps {
   isManager: boolean;

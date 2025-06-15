@@ -7,7 +7,7 @@ type User = {
   phone?: string;
 };
 
-const API_URL = "http://localhost:3001/users";
+const API_URL = "http://localhost:5297/users";
 
 const UserList: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);

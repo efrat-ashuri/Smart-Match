@@ -11,14 +11,14 @@ export const Layout = () => {
         {/* // מחזיר את האלמנט שתואם לתת ניתוב הנוכחי */}
         <main><Outlet /></main>
         {/* /// */}
-        <footer>React Course</footer>
+        {/* <footer>React Course</footer> */}
     </>
 }
 
 export const NavBar = () => {
     return <nav>
         <NavLink to={`/${Paths.home}`} end>Home</NavLink>
-        <RoleGuard roles={[RoleType.Admin]}><NavLink to={Paths.products}>Products</NavLink></RoleGuard>
+        {/* <RoleGuard roles={[RoleType.Admin]}><NavLink to={Paths.products}>Products</NavLink></RoleGuard> */}
     </nav>
 }
 

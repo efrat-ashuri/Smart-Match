@@ -1,3 +1,3 @@
-export const SendResumeClientPage = () => {
-    return <h1>Home</h1>
+export const SendResume = () => {
+    return <h1> שלח קורות חיים</h1>
 }

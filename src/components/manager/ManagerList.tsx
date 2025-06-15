@@ -8,7 +8,7 @@ type Manager = {
   managerRole?: string;
 };
 
-const API_URL = "http://localhost:3001/managers";
+const API_URL = "http://localhost:5297/managers";
 
 const ManagerList: React.FC = () => {
   const [managers, setManagers] = useState<Manager[]>([]);

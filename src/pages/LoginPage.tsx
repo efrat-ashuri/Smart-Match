@@ -1,66 +1,115 @@
-import { FormEvent, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { login } from "../services/auth.service"
-import { setSession } from "../auth/auth.utils"
-import { useAppDispatch } from "../redux/store"
-import { setAuth } from "../redux/auth/auth.slice"
-import { RoleType } from "../types/user.types"
+import { FormEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../services/auth.service";
+import { setSession } from "../auth/auth.utils";
+import { useAppDispatch } from "../redux/store";
+import { setAuth } from "../redux/auth/auth.slice";
+import { RoleType } from "../types/user.types";
+import { Paths } from "../routes/paths";
 
-export const LoginPage = () => {
-    const navigate = useNavigate()
-    const dispatch = useAppDispatch()
-    const [error, setError] = useState("")
+const LoginPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const [error, setError] = useState("");
 
-    const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        setError("") // איפוס שגיאה קיימת
-        const formData = new FormData(event.currentTarget)
+  const [form, setForm] = useState({
+    name: "",
+    password: "",
+    role: "candidate", // ברירת מחדל: מועמד
+  });
 
-        const name = formData.get("name")?.toString().trim() || ""
-        const password = formData.get("password")?.toString() || ""
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-        if (!name || !password) {
-            setError("אנא מלא את כל השדות")
-            return
-        }
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError("");
 
-        try {
-            const token = await login(name, password)
-            setSession(token)
+    const { name, password, role } = form;
 
-            // שימוש זמני בפרטי משתמש עד שיתווסף API אמיתי
-            const user = {
-                id: 1,
-                name,
-                role: RoleType.Admin,
-                phone: '05246545614',
-                email: 'sara@gmail.com',
-                address: '',
-            }
-
-            dispatch(setAuth(user))
-            navigate("/home")
-        } catch (err) {
-            console.error("Login error:", err)
-            setError("שם משתמש או סיסמה שגויים")
-        }
+    if (!name.trim() || !password) {
+      setError("אנא מלא את כל השדות");
+      return;
     }
 
-    return (
-        <form onSubmit={onSubmit} style={{ maxWidth: 300, margin: "0 auto", display: "flex", flexDirection: "column", gap: 10 }}>
-            <h2>התחברות</h2>
+    try {
+      const token = await login(name.trim(), password, role);
+      setSession(token);
 
-            <input name="name" placeholder="שם משתמש" />
-            <input name="password" type="password" placeholder="סיסמה" />
+      // קביעת ה-role לפי הבחירה בטופס
+      const user = {
+        id: 1,
+        name,
+        role: role === "manager" ? RoleType.Admin : RoleType.User,
+        phone: "",
+        address: "",
+      };
 
-            {error && <div style={{ color: "red", fontSize: "0.9em" }}>{error}</div>}
+      dispatch(setAuth(user));
 
-            <button type="submit">התחבר</button>
+      // ניווט לנתיב המתאים לפי role
+      if (role === "manager") {
+        navigate(`/${Paths.home}`); // לדף מנהל
+      } else {
+        navigate(`/${Paths.homeClient}`); // לדף מועמד
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("שם משתמש או סיסמה שגויים");
+    }
+  };
 
-            <p style={{ marginTop: 10 }}>
-                עדיין לא רשום? <Link to="/auth/sign-up">הרשם</Link>
-            </p>
-        </form>
-    )
-}
-export default LoginPage
+  return (
+    <form
+      onSubmit={onSubmit}
+      style={{
+        maxWidth: 300,
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}
+    >
+      <h2>התחברות</h2>
+
+      <input
+        name="name"
+        placeholder="שם משתמש"
+        value={form.name}
+        onChange={onChange}
+        autoComplete="username"
+      />
+
+      <input
+        name="password"
+        type="password"
+        placeholder="סיסמה"
+        value={form.password}
+        onChange={onChange}
+        autoComplete="current-password"
+      />
+
+      <label>בחר תפקיד:</label>
+      <select name="role" value={form.role} onChange={onChange}>
+        <option value="candidate">מועמד</option>
+        <option value="manager">מנהל</option>
+      </select>
+
+      {error && <div style={{ color: "red", fontSize: "0.9em" }}>{error}</div>}
+
+      <button type="submit">התחבר</button>
+
+      <p style={{ marginTop: 10 }}>
+        עדיין לא רשום? <Link to={`/${Paths.auth}/${Paths.register}`}>הרשם</Link>
+      </p>
+      <p style={{ marginTop: 10 }}>
+        מנהל? <Link to={`/${Paths.auth}/manager-login`}>התחברות מנהל</Link>
+      </p>
+    </form>
+  );
+};
+
+export default LoginPage;

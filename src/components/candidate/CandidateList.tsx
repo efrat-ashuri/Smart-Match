@@ -13,7 +13,7 @@ type Candidate = {
   skills?: string[];
 };
 
-const API_URL = "http://localhost:3001/candidates";
+const API_URL = "http://localhost:5297/candidates";
 
 const REQUIREMENTS_OPTIONS = [
   "תואר ראשון",

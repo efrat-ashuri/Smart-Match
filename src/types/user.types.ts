@@ -9,6 +9,6 @@ export type UserType = {
     name: string,
     role: RoleType,
     phone: string,
-    email: string,
     address: string,
+    email?: string;
 }

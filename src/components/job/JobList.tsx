@@ -8,7 +8,7 @@ type Job = {
   skills?: string[];
 };
 
-const API_URL = "http://localhost:3001/jobs";
+const API_URL = "http://localhost:5297/jobs";
 
 interface JobListProps {
   isManager: boolean;

@@ -5,7 +5,7 @@ type Skill = {
   name: string;
 };
 
-const API_URL = "http://localhost:3001/skills";
+const API_URL = "http://localhost:5297/skills";
 
 interface SkillsListProps {
   isManager: boolean;

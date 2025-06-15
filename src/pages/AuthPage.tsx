@@ -1,9 +1,9 @@
-import { Outlet } from "react-router"
+import { Outlet } from "react-router-dom";
 
 export const AuthPage = () => {
-
-    return <div>
-        ברוכים הבאים
-        <Outlet />
+  return (
+    <div className="auth-layout">
+      <Outlet />
     </div>
-}
+  );
+};
