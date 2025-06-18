@@ -1,14 +1,19 @@
-
-export const managerLogin = async (name:string, password:string, role:string) => {
+export const login = async (name: string, password: string, role: string) => {
   const response = await fetch("/api/login/login", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    name,
-    password,
-    role: "Manager" // או "candidate" לפי הצורך
-  }),
-});
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      password,
+      role // שימוש ב-role שהתקבל כפרמטר
+    }),
+  });
+  
   if (!response.ok) throw new Error("Login failed");
-  return response.text();
+  const data = await response.json();
+  
+  // שמירת סוג המשתמש ב-localStorage
+  localStorage.setItem('userRole', role);
+  
+  return data;
 };
