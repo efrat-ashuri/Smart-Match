@@ -165,7 +165,7 @@ namespace Mock.Migrations
                         name: "FK_JobRequirements_Jobs_IdJob",
                         column: x => x.IdJob,
                         principalTable: "Jobs",
-                        principalColumn: "JobId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_JobRequirements_Requirements_IdRequirement",
@@ -193,7 +193,7 @@ namespace Mock.Migrations
                         name: "FK_JobSkills_Jobs_IdJob",
                         column: x => x.IdJob,
                         principalTable: "Jobs",
-                        principalColumn: "JobId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_JobSkills_Skills_IdSkills",

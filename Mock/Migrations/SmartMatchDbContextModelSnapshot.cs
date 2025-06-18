@@ -51,6 +51,45 @@ namespace Mock.Migrations
                     b.ToTable("CandidateSkills");
                 });
 
+            modelBuilder.Entity("Job", b =>
+                {
+                    b.Property<int>("JobId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobId"));
+
+                    b.Property<string>("Area")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EnglishLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ManagerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumCandidate")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PassingScore")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("JobId");
+
+                    b.HasIndex("ManagerId");
+
+                    b.ToTable("Jobs");
+                });
+
             modelBuilder.Entity("JobRequirements", b =>
                 {
                     b.Property<int>("ListJobJobId")
@@ -121,45 +160,6 @@ namespace Mock.Migrations
                     b.HasKey("CandidateId");
 
                     b.ToTable("Candidates");
-                });
-
-            modelBuilder.Entity("Repository.Entities.Job", b =>
-                {
-                    b.Property<int>("JobId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobId"));
-
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EnglishLevel")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ManagerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NumCandidate")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PassingScore")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("JobId");
-
-                    b.HasIndex("ManagerId");
-
-                    b.ToTable("Jobs");
                 });
 
             modelBuilder.Entity("Repository.Entities.Manager", b =>
@@ -292,9 +292,20 @@ namespace Mock.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Job", b =>
+                {
+                    b.HasOne("Repository.Entities.Manager", "Manager")
+                        .WithMany("Jobs")
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Manager");
+                });
+
             modelBuilder.Entity("JobRequirements", b =>
                 {
-                    b.HasOne("Repository.Entities.Job", null)
+                    b.HasOne("Job", null)
                         .WithMany()
                         .HasForeignKey("ListJobJobId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -309,7 +320,7 @@ namespace Mock.Migrations
 
             modelBuilder.Entity("JobSkills", b =>
                 {
-                    b.HasOne("Repository.Entities.Job", null)
+                    b.HasOne("Job", null)
                         .WithMany()
                         .HasForeignKey("ListJobJobId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -320,17 +331,6 @@ namespace Mock.Migrations
                         .HasForeignKey("ListSkillsSkillsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Repository.Entities.Job", b =>
-                {
-                    b.HasOne("Repository.Entities.Manager", "Manager")
-                        .WithMany("Jobs")
-                        .HasForeignKey("ManagerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("Repository.Entities.Manager", b =>

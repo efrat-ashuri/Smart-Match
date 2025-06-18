@@ -253,7 +253,7 @@ namespace Mock.Migrations
                 table: "JobRequirements",
                 column: "ListJobJobId",
                 principalTable: "Jobs",
-                principalColumn: "JobId",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
@@ -269,7 +269,7 @@ namespace Mock.Migrations
                 table: "JobSkills",
                 column: "ListJobJobId",
                 principalTable: "Jobs",
-                principalColumn: "JobId",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
@@ -559,7 +559,7 @@ namespace Mock.Migrations
                 table: "JobRequirements",
                 column: "IdJob",
                 principalTable: "Jobs",
-                principalColumn: "JobId",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
@@ -575,7 +575,7 @@ namespace Mock.Migrations
                 table: "JobSkills",
                 column: "IdJob",
                 principalTable: "Jobs",
-                principalColumn: "JobId",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(

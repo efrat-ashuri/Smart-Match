@@ -1,4 +1,5 @@
 ﻿using Common.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -32,6 +33,7 @@ namespace Smart_Match.Controllers
         }
 
         // POST api/<JobController>
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         public async Task<JobDto> Post([FromBody] JobDto Job)
         {
@@ -39,6 +41,7 @@ namespace Smart_Match.Controllers
         }
 
         // PUT api/<JobController>/5
+        [Authorize(Roles = "Manager")]
         [HttpPut("{id}")]
         public async Task Put(int id, [FromBody] JobDto job)
         {
@@ -46,6 +49,7 @@ namespace Smart_Match.Controllers
         }
 
         // DELETE api/<JobController>/5
+        [Authorize(Roles = "Manager")]
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {

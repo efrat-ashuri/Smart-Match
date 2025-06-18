@@ -7,7 +7,7 @@ using Service.Interfaces;
 
 namespace Smart_Match.Controllers
 {
-    [Authorize(Roles = "Manager,Candidate")]
+    [Authorize(Roles = "Candidate")]
     [Route("api/[controller]")]
     [ApiController]
     public class CandidateController : ControllerBase
