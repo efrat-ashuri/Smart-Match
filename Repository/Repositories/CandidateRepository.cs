@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
@@ -12,6 +13,26 @@ namespace Repository.Repositories
 
         public async Task<Candidate> AddItem(Candidate item)
         {
+            // שליפת דרישות קיימות מה-DB לפי ID
+            var validRequirements = new List<Requirements>();
+            foreach (var req in item.ListRequirement)
+            {
+                var existingReq = await context.Requirements.FindAsync(req.RequirementId);
+                if (existingReq != null)
+                    validRequirements.Add(existingReq);
+            }
+            item.ListRequirement = validRequirements;
+
+            // שליפת כישורים קיימים מה-DB לפי ID
+            var validSkills = new List<Skills>();
+            foreach (var skill in item.ListSkills)
+            {
+                var existingSkill = await context.Skills.FindAsync(skill.SkillsId);
+                if (existingSkill != null)
+                    validSkills.Add(existingSkill);
+            }
+            item.ListSkills = validSkills;
+
             await this.context.Candidates.AddAsync(item);
             await this.context.Save();
             return item;
@@ -31,12 +52,12 @@ namespace Repository.Repositories
                     .Include(c => c.ListSkills)
                     .ToListAsync();
         }
+
         public async Task<Candidate> GetById(int id) =>
            await context.Candidates
                 .Include(c => c.ListRequirement)
                 .Include(c => c.ListSkills)
                 .FirstOrDefaultAsync(c => c.CandidateId == id);
-
 
         public async Task UpdateItem(int id, Candidate item)
         {
@@ -57,7 +78,7 @@ namespace Repository.Repositories
             candidate.Area = item.Area;
             candidate.Role = item.Role;
 
-            // עדכון Skills
+            // עדכון Skills (רק עדכון mark ושם אם רוצים, לא יצירה)
             foreach (var skillDto in item.ListSkills)
             {
                 var skill = candidate.ListSkills.FirstOrDefault(s => s.SkillsId == skillDto.SkillsId);
@@ -68,7 +89,7 @@ namespace Repository.Repositories
                 }
             }
 
-            // עדכון Requirements
+            // עדכון Requirements (תיאור וסטטוס אם צריך)
             foreach (var reqDto in item.ListRequirement)
             {
                 var req = candidate.ListRequirement.FirstOrDefault(r => r.RequirementId == reqDto.RequirementId);
