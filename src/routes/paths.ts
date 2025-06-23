@@ -1,7 +1,7 @@
 export const Paths = {
   home: "homeManPage",
   homeClient: "home-client",
-  candidate: "candidate",
+  candidate: "candidates",
   addJob: "add-job",
   sendResume: "send-resume",
   viewJobsClient: "view-jobs-client", // ✅ זה הנתיב שנשתמש בו לצפייה
@@ -15,4 +15,5 @@ export const Paths = {
   skills: "skills",
   requirnments: "requirnments",
   users: "users",
+  candidateDetails: "candidate/:id",
 };

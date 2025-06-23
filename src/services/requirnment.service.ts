@@ -1,7 +1,8 @@
 
 import axios from "axios";
 
-const API_URL = "http://localhost:5297/api/Requirement";
+const API_URL = "http://localhost:5297/api/Requinment";
+
 
 export class RequirementService {
   async getAllRequirements() {

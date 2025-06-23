@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5297/api/Skill";
+const API_URL = "http://localhost:5297/api/Skills";
 
 export class SkillService {
   async getAllSkills() {

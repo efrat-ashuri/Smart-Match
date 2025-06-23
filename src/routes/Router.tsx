@@ -168,7 +168,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomeManPage from "../pages/HomeManPage";
 import HomeClientPage from "../pages/HomeClientPage";
-import { CandidatePage } from "../pages/CandidatePage";
+import  AllCandidatePage  from "../pages/AllCandidatePage";
 import { AuthPage } from "../pages/AuthPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
@@ -188,6 +188,7 @@ import JobList from "../components/job/JobList";
 import CandidateList from "../components/candidate/CandidateList";
 import RequirementList from "../components/requirnment/RequirnmentList";
 import SkillList from "../components/skills/SkillsList";
+import CandidateDetailsPage from "../pages/CandidateDetailsPage"; // ודא שהקובץ קיים
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -216,7 +217,7 @@ const Router = () => {
           path: Paths.candidate,
           element: (
             <AuthGuard roles={[RoleType.Admin]}>
-              <CandidatePage />
+              <AllCandidatePage />
             </AuthGuard>
           ),
         },
@@ -244,6 +245,13 @@ const Router = () => {
             </AuthGuard>
           ),
         },
+        {path: "manager/candidate/:id",
+  element: (
+    <AuthGuard roles={[RoleType.Admin]}>
+      <CandidateDetailsPage />
+    </AuthGuard>
+  ),
+  },
         {
           path: Paths.jobs,
           element: (
@@ -284,6 +292,16 @@ const Router = () => {
             </AuthGuard>
           ),
         },
+
+{
+  path: Paths.candidateDetails,
+  element: (
+    <AuthGuard roles={[RoleType.Admin]}>
+      <CandidateDetailsPage />
+    </AuthGuard>
+  ),
+},
+
       ],
     },
     {
