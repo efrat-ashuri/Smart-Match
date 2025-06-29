@@ -252,6 +252,7 @@
 // export default SkillsList;
 
 import React, { useEffect, useState } from "react";
+import BackToMenuLink from "../BackToMenuLink";
 
 type Skill = {
   skillsId: number;
@@ -452,6 +453,7 @@ const SkillsList: React.FC<SkillsListProps> = ({ isManager }) => {
             </li>
           ))}
         </ul>
+         <BackToMenuLink />
       </div>
     </div>
   );

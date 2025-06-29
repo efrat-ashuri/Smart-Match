@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import BackToMenuLink from "../BackToMenuLink";
 type Requirement = {
   requirementId: number;
   description: string;
@@ -213,8 +213,9 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
                 </button>
               </li>
             ))}
-          </ul>
+          </ul>       
         )}
+         <BackToMenuLink />
       </div>
     </div>
   );

@@ -151,16 +151,17 @@
 // export default Navbar;
 
 
-
+// src/components/Navbar.tsx
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../redux/store";
 import { selectAuth } from "../redux/auth/auth.selector";
+import logo from "../assets/logo.png.png"; // ודאי שזה לא logo.png.png בטעות
 
 const navStyle = {
   background: "#1976d2",
   padding: "0 24px",
-  height: 56,
+  height: 64,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -188,7 +189,6 @@ const activeStyle: React.CSSProperties = {
 const Navbar: React.FC = () => {
   const { user, isInitialized } = useAppSelector(selectAuth);
 
-  // הצג Navbar רק אם טעינה הסתיימה ויש משתמש
   if (!isInitialized || !user) return null;
 
   const userType =
@@ -199,35 +199,30 @@ const Navbar: React.FC = () => {
       : "none";
 
   return (
-    <nav style={navStyle}>
-      <NavLink
-        to="/"
-        style={({ isActive }) =>
-          isActive ? { ...linkStyle, ...activeStyle } : linkStyle
-        }
-        end
-      >
-        דף הבית
-      </NavLink>
+    <>
+      {/* ✅ לוגו בראש הדף */}
+      <div style={{ textAlign: "center", marginTop: 12 }}>
+        <img
+          src={logo}
+          alt="Smart-Match Logo"
+          style={{ maxWidth: "300px", height: "auto" }}
+        />
+      </div>
 
-      {userType === "manager" && (
-        <>
-          <NavLink to="/users" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>משתמשים</NavLink>
-          <NavLink to="/jobs" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>משרות</NavLink>
-          <NavLink to="/skills" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>כישורים</NavLink>
-          <NavLink to="/managers" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>מנהלים</NavLink>
-          <NavLink to="/candidates" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>מועמדים</NavLink>
-          <NavLink to="/requirnments" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>דרישות</NavLink>
-        </>
-      )}
-
-      {userType === "candidate" && (
-        <>
-          <NavLink to="/send-resume" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>שליחת קורות חיים</NavLink>
-          <NavLink to="/view-jobs-client" style={({ isActive }) => isActive ? { ...linkStyle, ...activeStyle } : linkStyle}>משרות</NavLink>
-        </>
-      )}
-    </nav>
+      {/* 🔵 שורת ניווט */}
+      <nav style={navStyle}>
+        <NavLink
+          to="/"
+          style={({ isActive }) =>
+            isActive ? { ...linkStyle, ...activeStyle } : linkStyle
+          }
+          end
+        >
+          דף הבית
+        </NavLink>
+        {/* כאן אפשר להוסיף עוד כפתורים בעתיד */}
+      </nav>
+    </>
   );
 };
 

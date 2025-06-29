@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import BackToMenuLink from "../BackToMenuLink";
+
 
 type Candidate = {
   id: string;
@@ -613,8 +615,9 @@ const CandidateList: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </>
+          </>  
         )}
+           <BackToMenuLink />       
       </div>
     </div>
   );

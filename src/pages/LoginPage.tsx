@@ -196,15 +196,25 @@ const LoginPage = () => {
       setSession(token);
 
       const decoded = jwtDecode(token);
-      const roleClaim = decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+      const roleClaim =
+        decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
       const user = {
         id: 1,
-        name: decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"] || name,
+        name:
+          decoded[
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"
+          ] || name,
         role: mapRoleFromServer(roleClaim),
-        phone: decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/postalcode"] || "",
+        phone:
+          decoded[
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/postalcode"
+          ] || "",
         address: "",
-        email: decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] || "",
+        email:
+          decoded[
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+          ] || "",
       };
 
       dispatch(setAuth(user));
@@ -214,6 +224,9 @@ const LoginPage = () => {
       } else {
         navigate(`/${Paths.homeClient}`);
       }
+
+      // איפוס שדות אחרי התחברות
+      setForm({ name: "", password: "", role });
     } catch (err) {
       console.error("Login error:", err);
       setError("שם משתמש או סיסמה שגויים");
@@ -221,12 +234,35 @@ const LoginPage = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} style={{ maxWidth: 300, margin: "0 auto", display: "flex", flexDirection: "column", gap: 10 }}>
+    <form
+      onSubmit={onSubmit}
+      autoComplete="off"
+      style={{
+        maxWidth: 300,
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}
+    >
       <h2>התחברות</h2>
 
-      <input name="name" placeholder="שם משתמש" value={form.name} onChange={onChange} autoComplete="username" />
+      <input
+        name="name"
+        placeholder="שם משתמש"
+        value={form.name}
+        onChange={onChange}
+        autoComplete="off"
+      />
 
-      <input name="password" type="password" placeholder="סיסמה" value={form.password} onChange={onChange} autoComplete="current-password" />
+      <input
+        name="password"
+        type="password"
+        placeholder="סיסמה"
+        value={form.password}
+        onChange={onChange}
+         autoComplete="new-password"
+      />
 
       <label>בחר תפקיד:</label>
       <select name="role" value={form.role} onChange={onChange}>
@@ -234,12 +270,15 @@ const LoginPage = () => {
         <option value="manager">מנהל</option>
       </select>
 
-      {error && <div style={{ color: "red", fontSize: "0.9em" }}>{error}</div>}
+      {error && (
+        <div style={{ color: "red", fontSize: "0.9em" }}>{error}</div>
+      )}
 
       <button type="submit">התחבר</button>
 
       <p style={{ marginTop: 10 }}>
-        עדיין לא רשום? <Link to={`/${Paths.auth}/${Paths.register}`}>הרשם</Link>
+        עדיין לא רשום?{" "}
+        <Link to={`/${Paths.auth}/${Paths.register}`}>הרשם</Link>
       </p>
       <p style={{ marginTop: 10 }}>
         מנהל? <Link to={`/${Paths.auth}/manager-login`}>התחברות מנהל</Link>

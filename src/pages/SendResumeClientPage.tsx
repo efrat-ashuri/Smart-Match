@@ -727,7 +727,7 @@ const SendResumeClientPage: React.FC = () => {
           ))}
         </div>
 
-        <label> בחר כישורים מתאימים והכנס ציון :</label>
+        <label> בחר כישורים מתאימים  :</label>
         <input
           type="text"
           placeholder="🔍 חפש כישור..."
@@ -748,7 +748,7 @@ const SendResumeClientPage: React.FC = () => {
                   style={{ marginRight: "8px" }}
                 />
                 <span style={{ flex: 1 }}>{s.name}</span>
-                {selected && (
+                {/* {selected && (
                   <input
                     type="number"
                     placeholder="ציון"
@@ -758,7 +758,7 @@ const SendResumeClientPage: React.FC = () => {
                     min={0}
                     max={100}
                   />
-                )}
+                )} */}
               </div>
             );
           })}

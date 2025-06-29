@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BackToMenuLink from "../BackToMenuLink";
 
 type Manager = {
   id?: string;
@@ -297,6 +298,7 @@ const ManagerList: React.FC = () => {
             </li>
           ))}
         </ul>
+        <BackToMenuLink />
       </div>
     </div>
   );

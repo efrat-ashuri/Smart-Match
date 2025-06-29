@@ -38,19 +38,14 @@
 // export default Layout;
 
 
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/NavLink";
-import { useAppSelector } from "../redux/store";
-import { selectAuth } from "../redux/auth/auth.selector";
 
-const Layout = () => {
-  const { user, isInitialized } = useAppSelector(selectAuth);
-
-  if (!isInitialized) return <h3>טוען...</h3>; // ⏳ מחכים לבדיקה
-
+const Layout: React.FC = () => {
   return (
     <>
-      <header>{user && <Navbar />}</header>
+      <Navbar />
       <main>
         <Outlet />
       </main>
@@ -59,3 +54,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

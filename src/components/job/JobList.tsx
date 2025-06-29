@@ -683,7 +683,7 @@
 // export default JobList;
 
 import React, { useState, useEffect } from "react";
-
+import BackToMenuLink from "../BackToMenuLink";
 type Requirement = {
   description: string;
   advantageOrMust: string;
@@ -971,6 +971,7 @@ const JobList: React.FC<JobListProps> = ({ isManager }) => {
           </li>
         ))}
       </ul>
+           <BackToMenuLink />       
     </div>
   );
 };
