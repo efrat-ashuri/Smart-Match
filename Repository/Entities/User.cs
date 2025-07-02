@@ -23,3 +23,4 @@ namespace Repository.Entities
         public string Phone { get; set; }
     }
 }
+

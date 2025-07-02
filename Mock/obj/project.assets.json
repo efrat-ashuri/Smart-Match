@@ -88,6 +88,19 @@
           }
         }
       },
+      "HungarianAlgorithm/2.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/HungarianAlgorithm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/HungarianAlgorithm.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1193,7 +1206,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
-          "Common": "1.0.0"
+          "Common": "1.0.0",
+          "HungarianAlgorithm": "2.3.3"
         },
         "compile": {
           "bin/placeholder/Service.dll": {}
@@ -1288,6 +1302,23 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "HungarianAlgorithm/2.3.3": {
+      "sha512": "oGW/FaG3GS9UxFSB5QAMrLpBFFL3j0WNGyd0oiS/rQF8QY24Ep1y2zYvaUZnzucoBUYfIecEOy0v+eiZdNlPOQ==",
+      "type": "package",
+      "path": "hungarianalgorithm/2.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "hungarianalgorithm.2.3.3.nupkg.sha512",
+        "hungarianalgorithm.nuspec",
+        "lib/netstandard2.0/HungarianAlgorithm.dll",
+        "lib/netstandard2.0/HungarianAlgorithm.xml",
+        "lib/netstandard2.1/HungarianAlgorithm.dll",
+        "lib/netstandard2.1/HungarianAlgorithm.xml"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {

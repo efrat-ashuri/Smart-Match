@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6HfR6Mj6LxZH00u96+mQ71W1Hng9IKGhU9RoeREaznLAWE+pP3TQYkAMC6owGmy91e1qMJNZvSQA1acsICSUJw==",
+  "dgSpecHash": "YYCSPzDLSUHLXoDyppdAROE4yOBAo1ySHlabTSvLxH9bCy0RP6l39Rs7I2KS9rJvDYDXFsu/gxawo4rdDkknhA==",
   "success": true,
   "projectFilePath": "C:\\Users\\IMOE001\\Desktop\\project-good\\Smart-Match\\Mock\\Mock.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\IMOE001\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\IMOE001\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\IMOE001\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\IMOE001\\.nuget\\packages\\hungarianalgorithm\\2.3.3\\hungarianalgorithm.2.3.3.nupkg.sha512",
     "C:\\Users\\IMOE001\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\IMOE001\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\IMOE001\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

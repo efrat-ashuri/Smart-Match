@@ -31,6 +31,19 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "HungarianAlgorithm/2.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/HungarianAlgorithm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/HungarianAlgorithm.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -292,6 +305,23 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "HungarianAlgorithm/2.3.3": {
+      "sha512": "oGW/FaG3GS9UxFSB5QAMrLpBFFL3j0WNGyd0oiS/rQF8QY24Ep1y2zYvaUZnzucoBUYfIecEOy0v+eiZdNlPOQ==",
+      "type": "package",
+      "path": "hungarianalgorithm/2.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "hungarianalgorithm.2.3.3.nupkg.sha512",
+        "hungarianalgorithm.nuspec",
+        "lib/netstandard2.0/HungarianAlgorithm.dll",
+        "lib/netstandard2.0/HungarianAlgorithm.xml",
+        "lib/netstandard2.1/HungarianAlgorithm.dll",
+        "lib/netstandard2.1/HungarianAlgorithm.xml"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -687,7 +717,8 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
-      "Common >= 1.0.0"
+      "Common >= 1.0.0",
+      "HungarianAlgorithm >= 2.3.3"
     ]
   },
   "packageFolders": {
@@ -742,6 +773,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[12.0.1, )"
+          },
+          "HungarianAlgorithm": {
+            "target": "Package",
+            "version": "[2.3.3, )"
           }
         },
         "imports": [

@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Service.servicess
 {
-    //efrat&ahuvi the best
     public class JobService : IService<JobDto>
     {
         private readonly IRepository<Job> repository;
