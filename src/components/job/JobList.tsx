@@ -682,6 +682,8 @@
 
 // export default JobList;
 
+
+
 import React, { useState, useEffect } from "react";
 import BackToMenuLink from "../BackToMenuLink";
 type Requirement = {

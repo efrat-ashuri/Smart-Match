@@ -156,7 +156,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../redux/store";
 import { selectAuth } from "../redux/auth/auth.selector";
-import logo from "../assets/logo.png.png"; // ודאי שזה לא logo.png.png בטעות
+import logo from "../assets/logo.png.png"; 
 
 const navStyle = {
   background: "#1976d2",

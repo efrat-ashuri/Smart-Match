@@ -276,13 +276,13 @@ const LoginPage = () => {
 
       <button type="submit">התחבר</button>
 
-      <p style={{ marginTop: 10 }}>
+      {/* <p style={{ marginTop: 10 }}>
         עדיין לא רשום?{" "}
         <Link to={`/${Paths.auth}/${Paths.register}`}>הרשם</Link>
-      </p>
-      <p style={{ marginTop: 10 }}>
+      </p> */}
+      {/* <p style={{ marginTop: 10 }}>
         מנהל? <Link to={`/${Paths.auth}/manager-login`}>התחברות מנהל</Link>
-      </p>
+      </p> */}
     </form>
   );
 };

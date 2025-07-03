@@ -10,6 +10,7 @@ const HomeManPage = () => {
         <Link to={`/${Paths.candidate}`} style={{ margin: "0 10px" }}>ניהול מועמדים</Link>
         <Link to={`/${Paths.skills}`} style={{ margin: "0 10px" }}>ניהול כישורים</Link>
         <Link to={`/${Paths.requirnments}`} style={{ margin: "0 10px" }}>ניהול דרישות</Link>
+        <Link to={`/${Paths.match}`} style={{ margin: "0 10px" }}>התאמת מועמדים</Link>
       </div>
     </div>
   );

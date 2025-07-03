@@ -461,7 +461,7 @@ const CandidateList: React.FC = () => {
               margin: "0 auto"
             }}
           >
-            <h3 style={{ margin: 0, color: "#1976d2", textAlign: "center" }}>התחברות מנהל</h3>
+            {/* <h3 style={{ margin: 0, color: "#1976d2", textAlign: "center" }}>התחברות מנהל</h3> */}
             <input
               placeholder="אימייל"
               value={managerEmail}

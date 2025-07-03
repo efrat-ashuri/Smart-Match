@@ -189,7 +189,8 @@ import CandidateList from "../components/candidate/CandidateList";
 import RequirementList from "../components/requirnment/RequirnmentList";
 import SkillList from "../components/skills/SkillsList";
 import CandidateDetailsPage from "../pages/CandidateDetailsPage"; // ודא שהקובץ קיים
-
+// הוספת דף התאמת מועמדים 
+import CandidateMatchPage from "../pages/CandidateMatchPage"; // ודא שהקובץ קיים
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -301,6 +302,14 @@ const Router = () => {
     </AuthGuard>
   ),
 },
+{
+          path: Paths.match, // ✅ מסך התאמת מועמדים למשרות
+          element: (
+            <AuthGuard roles={[RoleType.Admin]}>
+              <CandidateMatchPage />
+            </AuthGuard>
+          ),
+        }
 
       ],
     },

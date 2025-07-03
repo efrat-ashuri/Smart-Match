@@ -96,7 +96,7 @@ const RegisterPage = () => {
         autoComplete="new-password"
       />
       {error && <div style={{ color: "red", fontSize: "0.9em" }}>{error}</div>}
-      <button type="submit">הרשם</button>
+      {/* <button type="submit">הרשם</button> */}
       <p style={{ marginTop: 10 }}>
         כבר רשום? <Link to="/auth/login">התחבר</Link>
       </p>
