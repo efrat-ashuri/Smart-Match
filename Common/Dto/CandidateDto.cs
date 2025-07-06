@@ -35,8 +35,8 @@ namespace Common.Dto
         [EnumDataType(typeof(eEnglishLevel), ErrorMessage = "Invalid English level")]
         public eEnglishLevel EnglishLevel { get; set; }
 
-        public List<RequirementsDto> ListRequirement { get; set; } = new();
-        public List<SkillsDto> ListSkills { get; set; } = new();
+        public virtual List<RequirementsDto> ListRequirement { get; set; } = new();
+        public virtual List<SkillsDto> ListSkills { get; set; } = new();
     }
 }
 

@@ -13,30 +13,90 @@ namespace Repository.Repositories
 
         public async Task<Candidate> AddItem(Candidate item)
         {
-            // שליפת דרישות קיימות מה-DB לפי ID
+            // שליפת דרישות קיימות או יצירת חדשות
             var validRequirements = new List<Requirements>();
             foreach (var req in item.ListRequirement)
             {
-                var existingReq = await context.Requirements.FindAsync(req.RequirementId);
-                if (existingReq != null)
-                    validRequirements.Add(existingReq);
+                if (req.RequirementId == 0)
+                {
+                    var newReq = new Requirements
+                    {
+                        Description = req.Description,
+                        AdvantageOrMust = req.AdvantageOrMust
+                    };
+                    context.Requirements.Add(newReq);
+                    validRequirements.Add(newReq);
+                }
+                else
+                {
+                    var existingReq = await context.Requirements.FindAsync(req.RequirementId);
+                    if (existingReq != null)
+                        validRequirements.Add(existingReq);
+                }
             }
-            item.ListRequirement = validRequirements;
 
-            // שליפת כישורים קיימים מה-DB לפי ID
+            // שליפת כישורים קיימים או יצירת חדשים
             var validSkills = new List<Skills>();
             foreach (var skill in item.ListSkills)
             {
-                var existingSkill = await context.Skills.FindAsync(skill.SkillsId);
-                if (existingSkill != null)
-                    validSkills.Add(existingSkill);
+                if (skill.SkillsId == 0)
+                {
+                    var newSkill = new Skills
+                    {
+                        Name = skill.Name,
+                        Mark = skill.Mark
+                    };
+                    context.Skills.Add(newSkill);
+                    validSkills.Add(newSkill);
+                }
+                else
+                {
+                    var existingSkill = await context.Skills.FindAsync(skill.SkillsId);
+                    if (existingSkill != null)
+                        validSkills.Add(existingSkill);
+                }
             }
+
+            // שמירת דרישות וכישורים חדשים קודם
+            await context.Save();
+
+            // עדכון המועמד עם הדרישות והכישורים החדשים
+            item.ListRequirement = validRequirements;
             item.ListSkills = validSkills;
 
+            // שמירת המועמד
             await this.context.Candidates.AddAsync(item);
             await this.context.Save();
+
             return item;
         }
+
+        //public async Task<Candidate> AddItem(Candidate item)
+        //{
+        //    // שליפת דרישות קיימות מה-DB לפי ID
+        //    var validRequirements = new List<Requirements>();
+        //    foreach (var req in item.ListRequirement)
+        //    {
+        //        var existingReq = await context.Requirements.FindAsync(req.RequirementId);
+        //        if (existingReq != null)
+        //            validRequirements.Add(existingReq);
+        //    }
+        //    item.ListRequirement = validRequirements;
+
+        //    // שליפת כישורים קיימים מה-DB לפי ID
+        //    var validSkills = new List<Skills>();
+        //    foreach (var skill in item.ListSkills)
+        //    {
+        //        var existingSkill = await context.Skills.FindAsync(skill.SkillsId);
+        //        if (existingSkill != null)
+        //            validSkills.Add(existingSkill);
+        //    }
+        //    item.ListSkills = validSkills;
+
+        //    await this.context.Candidates.AddAsync(item);
+        //    await this.context.Save();
+        //    return item;
+        //}
 
         public async Task DeleteItem(int id)
         {
