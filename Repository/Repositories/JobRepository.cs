@@ -59,6 +59,8 @@ namespace Repository.Repositories
             job.ManagerId = item.ManagerId;
             job.PassingScore = item.PassingScore;
             job.NumCandidate = item.NumCandidate;
+            job.ExperienceYears = item.ExperienceYears;
+
 
             // עדכון Skills
             foreach (var skillDto in item.ListSkills)

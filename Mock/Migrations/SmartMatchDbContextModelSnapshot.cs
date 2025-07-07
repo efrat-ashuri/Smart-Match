@@ -70,6 +70,9 @@ namespace Mock.Migrations
                     b.Property<int>("EnglishLevel")
                         .HasColumnType("int");
 
+                    b.Property<int>("ExperienceYears")
+                        .HasColumnType("int");
+
                     b.Property<int>("ManagerId")
                         .HasColumnType("int");
 

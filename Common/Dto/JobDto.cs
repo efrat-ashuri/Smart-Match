@@ -36,6 +36,10 @@ namespace Common.Dto
         [Range(0, int.MaxValue, ErrorMessage = "NumCandidate cannot be negative")]
         public int NumCandidate { get; set; }
 
+        [Range(0, 100, ErrorMessage = "Experience must be between 0 and 100 years")]
+        [Required(ErrorMessage = "ExperienceYears is required")]
+        public int ExperienceYears { get; set; }
+
         public List<RequirementsDto> ListRequirement { get; set; } = new List<RequirementsDto>();
 
         public List<SkillsDto> ListSkills { get; set; } = new List<SkillsDto>();

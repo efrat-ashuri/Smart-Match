@@ -25,7 +25,7 @@ namespace Service.servicess
             Job job = mapper.Map<JobDto, Job>(item);
             job.Manager = null;
             job.ManagerId = item.ManagerId;
-            return mapper.Map<Job, JobDto>( await repository.AddItem(mapper.Map<JobDto, Job>(item)));
+            return mapper.Map<Job, JobDto>(await repository.AddItem(mapper.Map<JobDto, Job>(item)));
         }
 
         public async Task DeleteItem(int id)

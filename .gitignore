@@ -14,7 +14,11 @@ obj/
 *.exe
 *.pdb
 *.mdb
-
+bin/
+obj/
+*.user
+*.suo
+*.cache
  
 .vs/
 *.user
