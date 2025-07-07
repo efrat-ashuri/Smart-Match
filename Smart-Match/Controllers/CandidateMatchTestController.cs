@@ -15,10 +15,10 @@ namespace Smart_Match.Controllers
             _matcherService = matcherService;
         }
 
-        [HttpGet("run")]
-        public async Task<IActionResult> RunMatching()
+        [HttpGet("run/{managerId}")]
+        public async Task<IActionResult> RunMatching(int managerId)
         {
-            var result = await _matcherService.MatchCandidatesToJobsAsync();
+            var result = await _matcherService.MatchCandidatesToJobsAsync(managerId); // שולחים את ה-managerId לפונקציה
             return Ok(result); // מחזיר את תוצאות ההתאמה כ-JSON
         }
     }

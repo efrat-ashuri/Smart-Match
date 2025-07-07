@@ -10,6 +10,6 @@ namespace Service.Interfaces
 {
     public interface ICandidateMatcherService
     {
-        Task<List<JobMatchesDto>> MatchCandidatesToJobsAsync();
+        Task<List<JobMatchesDto>> MatchCandidatesToJobsAsync(int managerId);
     }
 }

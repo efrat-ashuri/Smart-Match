@@ -23,6 +23,7 @@ public class Job
     public string Description { get; set; }
     public string Area { get; set; }
     public eEnglishLevel EnglishLevel { get; set; }
+    public int ExperienceYears { get; set; }
 
     public virtual List<Requirements> ListRequirement { get; set; }
     public virtual List<Skills> ListSkills { get; set; }
