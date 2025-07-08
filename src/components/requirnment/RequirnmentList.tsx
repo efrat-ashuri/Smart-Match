@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import BackToMenuLink from "../BackToMenuLink";
+
 type Requirement = {
   requirementId: number;
   description: string;
   advantageOrMust: "Must" | "Advantage";
 };
 
-// שימי לב! אם בקונטרולר שלך השם Requinment (לא נכון) אז תשאירי כך.
-// אבל עדיף לשנות גם בקונטרולר וגם כאן ל-Requirement
 const API_URL = "http://localhost:5297/api/Requinment";
 
 interface RequirementListProps {
@@ -36,7 +35,7 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
       } else {
         setError("שגיאה בשליפת דרישות");
       }
-    } catch (err) {
+    } catch {
       setError("בעיה בחיבור לשרת");
     } finally {
       setLoading(false);
@@ -50,7 +49,6 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!description.trim()) return setError("יש למלא תיאור דרישה");
-
     setError(null);
     try {
       const res = await fetch(API_URL, {
@@ -77,7 +75,6 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingRequirement || !description.trim()) return setError("יש למלא תיאור");
-
     setError(null);
     try {
       const res = await fetch(`${API_URL}/${editingRequirement.requirementId}`, {
@@ -94,7 +91,6 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
       });
 
       if (res.ok) {
-        // לא כל PUT מחזיר תוכן - אז לא לעשות res.json בלי לבדוק
         await fetchRequirements();
         cancelEdit();
       } else {
@@ -139,24 +135,31 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
   if (!isManager) return null;
 
   return (
-    <div dir="rtl" style={{ minHeight: "100vh", background: "#4978c9", padding: "0" }}>
+    <div dir="rtl" style={{ minHeight: "100vh", background: "#4978c9", padding: 0 }}>
       <div style={{
         maxWidth: 900, margin: "40px auto", background: "#fff", borderRadius: 12,
         boxShadow: "0 2px 8px #0001", padding: 24
       }}>
-        <h2 style={{ textAlign: "center", color: "#222", fontSize: 32, marginBottom: 24, fontWeight: "bold" }}>
+        <h2 style={{
+          textAlign: "center", color: "#222", fontSize: 32,
+          marginBottom: 24, fontWeight: "bold"
+        }}>
           ניהול דרישות
         </h2>
 
         <form onSubmit={editingRequirement ? handleUpdate : handleAdd} style={{
-          display: "flex", gap: 8, marginBottom: 24, flexWrap: "wrap", background: "#ffd000",
-          borderRadius: 8, padding: 16, alignItems: "center", justifyContent: "center"
+          display: "flex", gap: 8, marginBottom: 24, flexWrap: "wrap",
+          background: "#ffd000", borderRadius: 8, padding: 16,
+          alignItems: "center", justifyContent: "center"
         }}>
           <input
             placeholder="תיאור דרישה"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            style={{ flex: 1, padding: 8, borderRadius: 6, border: "1px solid #bbb", minWidth: 140 }}
+            style={{
+              flex: 1, padding: 8, borderRadius: 6,
+              border: "1px solid #bbb", minWidth: 140
+            }}
           />
           <select
             value={advantageOrMust}
@@ -167,8 +170,8 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
             <option value="Advantage">יתרון</option>
           </select>
           <button type="submit" style={{
-            background: "#1976d2", color: "#fff", border: "none", borderRadius: 6,
-            padding: "8px 16px", fontWeight: "bold", cursor: "pointer"
+            background: "#1976d2", color: "#fff", border: "none",
+            borderRadius: 6, padding: "8px 16px", fontWeight: "bold", cursor: "pointer"
           }}>
             {editingRequirement ? "עדכן" : "הוסף"}
           </button>
@@ -213,9 +216,11 @@ const RequirementList: React.FC<RequirementListProps> = ({ isManager }) => {
                 </button>
               </li>
             ))}
-          </ul>       
+          </ul>
         )}
-         <BackToMenuLink />
+
+        {/* ✅ הוספת קישור חזרה לתפריט מנהל */}
+        <BackToMenuLink />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Paths } from "../../routes/paths";
 import BackToMenuLink from "../BackToMenuLink";
-
 
 type Candidate = {
   id: string;
@@ -502,7 +503,23 @@ const CandidateList: React.FC = () => {
             </button>
           </form>
         )}
-
+ {isManager && (
+          <div style={{ textAlign: "center", marginBottom: "20px" }}>
+            <Link
+              to="/home"
+              style={{
+                backgroundColor: "#1976d2",
+                color: "white",
+                padding: "10px 20px",
+                borderRadius: "6px",
+                textDecoration: "none",
+                fontWeight: "bold",
+              }}
+            >
+              ⬅ חזרה לתפריט מנהל
+            </Link>
+          </div>
+        )}
         {isManager && (
           <>
             <h2 style={{ textAlign: "center", color: "#ffd000", margin: "24px 0 16px 0", fontWeight: "bold" }}>

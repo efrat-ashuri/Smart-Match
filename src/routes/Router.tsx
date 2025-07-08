@@ -180,7 +180,6 @@ import { RoleType } from "../types/user.types";
 import LandingPage from "../pages/LandingPage";
 import { JobPage } from "../pages/JobPage";
 import { ManagerPage } from "../pages/ManagerPage";
-import { UserPage } from "../pages/UserPage";
 import { RequirrnmentPage } from "../pages/RequirnmentPage";
 import { SkillsPage } from "../pages/SkillsPage";
 import SendResume from "../pages/SendResumeClientPage";
@@ -285,14 +284,14 @@ const Router = () => {
             </AuthGuard>
           ),
         },
-        {
-          path: Paths.users,
-          element: (
-            <AuthGuard roles={[RoleType.Admin]}>
-              <UserPage />
-            </AuthGuard>
-          ),
-        },
+        // {
+        //   path: Paths.users,
+        //   element: (
+        //     <AuthGuard roles={[RoleType.Admin]}>
+        //       <UserPage />
+        //     </AuthGuard>
+        //   ),
+        // },
 
 {
   path: Paths.candidateDetails,
