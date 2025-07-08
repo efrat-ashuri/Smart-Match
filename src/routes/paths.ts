@@ -16,5 +16,5 @@ export const Paths = {
   requirnments: "requirnments",
   users: "users",
   candidateDetails: "candidate/:id",
-    match: "match/:jobId",
+  match: "match",
 };
