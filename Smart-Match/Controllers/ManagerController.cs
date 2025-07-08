@@ -3,12 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Smart_Match.Controllers
 {
-    //Authenticate-אימות משתמש
-    //Authorization-הרשאת גישה
+
     [Authorize(Roles = "Manager")]
 
     [Route("api/[controller]")]

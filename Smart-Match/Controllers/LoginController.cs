@@ -1,39 +1,4 @@
-﻿//using Common.Dto;
-//using Microsoft.AspNetCore.Authorization;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.IdentityModel.Tokens;
-//using Repository.Entities;
-//using Service.Interfaces;
-//using System.CodeDom.Compiler;
-//using System.IdentityModel.Tokens.Jwt;
-//using System.Security.Claims;
-//using System.Text;
-
-//// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-//namespace Smart_Match.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class LoginController : ControllerBase
-//    {
-//        private readonly IService<UserDto> service;
-//        private readonly IConfiguration _config;
-
-//        public LoginController(IService<UserDto> service, IConfiguration config)
-//        {
-//            this.service = service;
-//            _config = config;
-//        }
-//        // GET: api/<LoginController>
-//        // [Authorize(Roles = "Manager")]
-//        [HttpGet]
-//        public async Task<List<UserDto>> Get()
-//        {
-//            return await service.GetAll();
-
-
-using Common.Dto;
+﻿using Common.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -76,7 +41,7 @@ namespace Smart_Match.Controllers
             await service.AddItem(addUser);
         }
 
-        // ✅ LOGIN
+ 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserLogin value)
         {
@@ -84,12 +49,12 @@ namespace Smart_Match.Controllers
             if (user != null)
             {
                 var token = Generate(user);
-                return Ok(token); // מחזיר טוקן תקין
+                return Ok(token); 
             }
             return Unauthorized("שם משתמש או סיסמה שגויים");
         }
 
-        // ✅ יצירת JWT עם Claim תקין לתפקיד
+        
         private string Generate(UserDto user)
         {
             var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
@@ -101,7 +66,7 @@ namespace Smart_Match.Controllers
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.PostalCode, user.Password),
                 new Claim(ClaimTypes.GivenName, user.Name),
-                new Claim(ClaimTypes.Role, user.Role.ToString()) // ✅ הכי חשוב!
+                new Claim(ClaimTypes.Role, user.Role.ToString()) 
             };
 
             var token = new JwtSecurityToken(

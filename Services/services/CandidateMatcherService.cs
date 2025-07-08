@@ -230,23 +230,6 @@ namespace Service.services
             return -10; // ענישה על תפקיד שלא מתאים כלל
         }
 
-
-        //private static double CalculateScore(Job job, Candidate candidate)
-        //{
-        //    double score = 0;
-
-        //    score += ScoreRequirements(job, candidate);
-        //    score += ScoreSkills(job, candidate);
-        //    score += ScoreEnglish(job, candidate);
-        //    score += ScoreExperience(job, candidate);
-        //    score += ScoreArea(job, candidate);
-
-        //    if (score < 0)
-        //        score = 0;
-
-        //    return Math.Round(score, 2);
-        //}
-
         private static double ScoreRequirements(Job job, Candidate candidate)
         {
             var mustReqs = job.ListRequirement?
@@ -307,23 +290,6 @@ namespace Service.services
             return (skillScore / jobSkills.Count) * 30;
         }
 
-        //private static double ScoreEnglish(Job job, Candidate candidate)
-        //{
-        //    int jobLevel = (int)job.EnglishLevel;
-        //    int candLevel = (int)candidate.EnglishLevel;
-
-        //    if (candLevel > jobLevel)
-        //        return 15;
-
-        //    if (candLevel == jobLevel)
-        //        return 12; // קצת פחות מ-15
-
-        //    if (jobLevel > 0)
-        //        return ((double)candLevel / jobLevel) * 10;
-
-        //    return 0;
-        //}
-
         private static double ScoreExperience(Job job, Candidate candidate)
         {
             int maxYears = 5;
@@ -338,14 +304,6 @@ namespace Service.services
 
             return (effectiveYears / required) * 15;
         }
-
-        //private static double ScoreArea(Job job, Candidate candidate)
-        //{
-        //    if (string.Equals(job.Area?.Trim(), candidate.Area?.Trim(), StringComparison.OrdinalIgnoreCase))
-        //        return 10;
-
-        //    return 0;
-        //}
 
 
     }
