@@ -29,7 +29,7 @@ function App() {
     <>
       <InitializedAuth />
       {isInitialized ? (
-        <Router />  // ✅ אל תעביר פרופסים
+        <Router /> 
       ) : (
         <div style={{ textAlign: "center", marginTop: "40px" }}>
           <h3>טוען נתוני התחברות...</h3>

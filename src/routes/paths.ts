@@ -4,7 +4,7 @@ export const Paths = {
   candidate: "candidates",
   addJob: "add-job",
   sendResume: "send-resume",
-  viewJobsClient: "view-jobs-client", // ✅ זה הנתיב שנשתמש בו לצפייה
+  viewJobsClient: "view-jobs-client", 
   viewJobsMan: "view-jobs-man",
   auth: "auth",
   login: "login",
