@@ -10,8 +10,6 @@ using Common.Dto;
 
 namespace Service.services
 {
-
-
     public class CandidateMatcherService : ICandidateMatcherService
     {
         private readonly IService<JobDto> _jobService;
@@ -229,6 +227,7 @@ namespace Service.services
 
             return -10; // ענישה על תפקיד שלא מתאים כלל
         }
+
 
         private static double ScoreRequirements(Job job, Candidate candidate)
         {
